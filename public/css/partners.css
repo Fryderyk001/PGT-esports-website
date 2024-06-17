@@ -1,0 +1,50 @@
+/* Styl dla strony partnerów */
+.partners {
+    background-color: #fff;
+    padding: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.partners h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6347;
+}
+
+.partner-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.partner {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 200px;
+}
+
+.partner:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.partner h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.partner img {
+    max-width: 100px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.partner:hover img {
+    transform: scale(1.1);
+}
