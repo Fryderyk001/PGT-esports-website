@@ -1,0 +1,49 @@
+/* Styl dla strony regulaminu */
+.regulations {
+    background-color: #fff;
+    padding: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.regulations h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6347;
+}
+
+.regulations p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.regulations h3 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    color: #ff6347;
+}
+
+.regulations ul {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+.regulations ul li {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.regulations ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ff6347;
+    font-size: 1.5rem;
+    line-height: 1;
+}
