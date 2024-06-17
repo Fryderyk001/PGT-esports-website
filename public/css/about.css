@@ -1,0 +1,25 @@
+/* Styl dla strony "O nas" */
+.about {
+    background-color: #fff;
+    padding: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6347;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.about h3 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    color: #ff6347;
+}
