@@ -1,0 +1,92 @@
+/* Styl dla strony wyników */
+.results {
+    background-color: #fff;
+    padding: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.results h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6347;
+}
+
+.result-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.result {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 5px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.result:hover {
+    transform: scale(1.05);
+}
+
+.result h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.result p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.add-result {
+    background-color: #2c2c2c;
+    padding: 2rem;
+    color: #fff;
+    text-align: left;
+    margin-top: 2rem;
+    border-radius: 5px;
+}
+
+.add-result h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6347;
+}
+
+.add-result form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.add-result form label {
+    font-size: 1.2rem;
+}
+
+.add-result form select,
+.add-result form textarea,
+.add-result form input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.add-result form button {
+    background-color: #ff6347;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.add-result form button:hover {
+    background-color: #cc4f39;
+    transform: scale(1.1);
+}
