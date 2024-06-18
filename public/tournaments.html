@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournaments - PGT Esports Tournaments</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tournaments.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/PGT_LOGO1.png" alt="PGT Logo">
+        </div>
+        <div class="navigation-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="results.html">Results</a>
+            <a href="partners.html">Partners</a>
+            <a href="contact.html">Contact</a>
+            <a href="regulations.html">Regulations</a>
+            <button class="login-button" onclick="window.location.href='https://discord.com/login'">
+                <img src="images/discord-logo.png" alt="Discord Logo"> Login with Discord
+            </button>
+        </div>
+    </nav>
+    
+    <header class="tournaments-header">
+        <h2>Upcoming Tournaments</h2>
+        <p>Join our exciting upcoming tournaments and showcase your skills!</p>
+    </header>
+
+    <section class="tournament-list">
+        <div class="tournament">
+            <h3>Tournament 1</h3>
+            <p>Date: 2024-06-20</p>
+            <p>Type: 1vs1</p>
+            <p>Participants: 10/16</p>
+            <button class="register-button" data-tournament-id="1">Register</button>
+            <div class="details">
+                <p>Prize Pool: $1000</p>
+                <p>Entry Fee: Free</p>
+                <p>Description: A thrilling 1vs1 tournament.</p>
+            </div>
+        </div>
+        <!-- Repeat similar blocks for other tournaments -->
+    </section>
+
+    <section class="add-tournament">
+        <h2>Add New Tournament</h2>
+        <form>
+            <label for="name">Tournament Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Tournament Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="end-date">End of Registration Date:</label>
+            <input type="date" id="end-date" name="end-date" required>
+
+            <label for="prize">Prize Pool:</label>
+            <input type="number" id="prize" name="prize" required>
+
+            <label for="min-participants">Minimum Participants:</label>
+            <input type="number" id="min-participants" name="min-participants" required>
+
+            <label for="type">Tournament Type:</label>
+            <select id="type" name="type" required>
+                <option value="1vs1">1vs1</option>
+                <option value="3vs3">3vs3</option>
+                <option value="5vs5">5vs5</option>
+            </select>
+
+            <label for="game">Game Type:</label>
+            <input type="text" id="game" name="game" required>
+
+            <label for="entry">Entry Fee:</label>
+            <input type="text" id="entry" name="entry" required>
+
+            <label for="tiply-link">Tiply Link (if applicable):</label>
+            <input type="url" id="tiply-link" name="tiply-link">
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <button type="submit">Add Tournament</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
+    </footer>
+
+    <script src="js/tournaments.js"></script>
+</body>
+</html>
