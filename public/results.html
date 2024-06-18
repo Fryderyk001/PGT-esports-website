@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - PGT Esports Tournaments</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/results.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/PGT_LOGO1.png" alt="PGT Logo">
+        </div>
+        <div class="navigation-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="results.html">Results</a>
+            <a href="partners.html">Partners</a>
+            <a href="contact.html">Contact</a>
+            <a href="regulations.html">Regulations</a>
+            <button class="login-button" onclick="window.location.href='https://discord.com/login'">
+                <img src="images/discord-logo.png" alt="Discord Logo"> Login with Discord
+            </button>
+        </div>
+    </nav>
+    
+    <header class="results-header">
+        <h2>Results</h2>
+        <p>See the results of our recent tournaments.</p>
+    </header>
+
+    <section class="result-list">
+        <div class="result">
+            <h3>Tournament 1</h3>
+            <p>Date: 2024-06-20</p>
+            <p>Winner: John Doe</p>
+            <p>Runner-up: Jane Smith</p>
+            <div class="details">
+                <p>Third Place: Mike Johnson</p>
+                <p>Other Participants: Alice, Bob, Charlie</p>
+            </div>
+        </div>
+        <!-- Repeat similar blocks for other results -->
+    </section>
+
+    <section class="add-result">
+        <h2>Add New Result</h2>
+        <form>
+            <label for="tournament">Tournament:</label>
+            <select id="tournament" name="tournament" required>
+                <option value="tournament1">Tournament 1</option>
+                <!-- Add other tournaments here -->
+            </select>
+
+            <label for="winner">Winner:</label>
+            <input type="text" id="winner" name="winner" required>
+
+            <label for="runner-up">Runner-up:</label>
+            <input type="text" id="runner-up" name="runner-up" required>
+
+            <label for="third">Third Place:</label>
+            <input type="text" id="third" name="third">
+
+            <label for="others">Other Participants:</label>
+            <textarea id="others" name="others"></textarea>
+
+            <button type="submit">Add Result</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
+    </footer>
+
+    <script src="js/results.js"></script>
+</body>
+</html>
