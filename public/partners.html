@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners - PGT Esports Tournaments</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/partners.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/PGT_LOGO1.png" alt="PGT Logo">
+        </div>
+        <div class="navigation-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="results.html">Results</a>
+            <a href="partners.html">Partners</a>
+            <a href="contact.html">Contact</a>
+            <a href="regulations.html">Regulations</a>
+            <button class="login-button" onclick="window.location.href='https://discord.com/login'">
+                <img src="images/discord-logo.png" alt="Discord Logo"> Login with Discord
+            </button>
+        </div>
+    </nav>
+    
+    <header class="partners-header">
+        <h2>Our Partners</h2>
+        <p>Meet our amazing partners who help make our tournaments possible.</p>
+    </header>
+
+    <section class="partner-list">
+        <div class="partner">
+            <img src="images/discord-logo.png" alt="Partner Logo">
+            <h3>Discord</h3>
+            <p>Official Communication Partner</p>
+        </div>
+        <!-- Repeat similar blocks for other partners -->
+    </section>
+
+    <section class="add-partner">
+        <h2>Add New Partner</h2>
+        <form>
+            <label for="partner-name">Partner Name:</label>
+            <input type="text" id="partner-name" name="partner-name" required>
+
+            <label for="twitch-nick">Twitch Nickname:</label>
+            <input type="text" id="twitch-nick" name="twitch-nick" required>
+
+            <label for="partner-url">Partner URL:</label>
+            <input type="url" id="partner-url" name="partner-url" required>
+
+            <button type="submit">Add Partner</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
+    </footer>
+
+    <script src="js/partners.js"></script>
+</body>
+</html>
