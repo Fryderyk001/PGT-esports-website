@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const socialContainer = document.querySelector('.social-container');
 
     socialContainer.addEventListener('mouseover', () => {
-        socialContainer.classList.add('expanded');
+        socialContainer.style.right = '0';
     });
 
     socialContainer.addEventListener('mouseout', () => {
-        socialContainer.classList.remove('expanded');
+        socialContainer.style.right = '-150px';
     });
 });
