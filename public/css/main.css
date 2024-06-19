@@ -1,20 +1,26 @@
+/* Globalne zmienne kolorów dla motywów */
+:root {
+    --background-light: #ffffff;
+    --text-light: #666666;
+    --background-dark: #333333;
+    --text-dark: #ffffff;
+    --nav-background: #808080;
+    --nav-text: #ffffff;
+    --nav-active: #ff8c00;
+}
+
 /* Styl dla całej zawartości strony */
 html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--background-dark);
+    color: var(--text-dark);
 }
 
 body.light-theme {
-    --background-color: #ffffff;
-    --text-color: #000000;
-}
-
-body.dark-theme {
-    --background-color: #333333;
-    --text-color: #ffffff;
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
 
 .wrapper {
@@ -26,74 +32,65 @@ body.dark-theme {
 .content {
     flex: 1;
     padding: 20px;
-    background-color: var(--background-content);
+    background-color: transparent;
 }
 
 body.light-theme .content {
-    --background-content: #f0f0f0;
+    background-color: transparent;
 }
 
-body.dark-theme .content {
-    --background-content: rgba(0, 0, 0, 0.7);
-}
-
-/* Styl dla nawigacji */
 nav {
-    background-color: #808080; /* Szary kolor nawigacji */
-    color: #fff;
-    padding: 0.3rem 1rem; /* Zmniejszona wielkość nawigacji */
+    background-color: var(--nav-background);
+    color: var(--nav-text);
+    padding: 0.3rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dodanie cienia */
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
 }
 
 nav .logo-text {
-    font-size: 1.5rem; /* Zmniejszony rozmiar tekstu logo */
-    color: #ff8c00; /* Pomarańczowy kolor tekstu logo */
+    font-size: 1.5rem;
+    color: var(--nav-active);
     margin-right: 1rem;
 }
 
-/* Styl dla linków w nawigacji */
-.navigation-links {
-    display: flex;
-    align-items: center;
-}
-
 .navigation-links a {
-    color: #fff;
+    color: var(--nav-text);
     text-decoration: none;
     margin: 0 0.5rem;
-    transition: color 0.3s ease, transform 0.3s ease; /* Dodanie animacji */
+    transition: color 0.3s ease, transform 0.3s ease;
     font-size: 0.9rem;
 }
 
 .navigation-links a:hover,
 .navigation-links a.active {
-    color: #ff8c00; /* Pomarańczowy kolor dla aktywnego linku */
-    transform: scale(1.1); /* Powiększenie przy najechaniu */
+    color: var(--nav-active);
+    transform: scale(1.1);
 }
 
-/* Styl dla przycisku logowania */
+body.light-theme nav {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+body.light-theme .navigation-links a {
+    color: var(--text-light);
+}
+
+body.light-theme .navigation-links a:hover,
+body.light-theme .navigation-links a.active {
+    color: var(--nav-active);
+}
+
 .login-button {
     background-color: #7289da;
     color: #fff;
     padding: 0.4rem 0.8rem;
     border: none;
-    border-radius: 20px; /* Zaokrąglenie przycisku */
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Dodanie animacji */
+    transition: background-color 0.3s ease, transform 0.3s ease;
     font-size: 0.9rem;
 }
 
@@ -104,10 +101,9 @@ nav .logo-text {
 
 .login-button:hover {
     background-color: #5b6eae;
-    transform: scale(1.05); /* Powiększenie przy najechaniu */
+    transform: scale(1.05);
 }
 
-/* Styl dla ikon społecznościowych w bocznej sekcji */
 .social-media-sidebar {
     position: fixed;
     top: 50%;
@@ -119,7 +115,7 @@ nav .logo-text {
     padding: 0.5rem;
     border-left: none;
     border-radius: 5px 0 0 5px;
-    background-color: transparent; /* Usunięcie białego tła */
+    background-color: transparent;
 }
 
 .social-media-sidebar a {
@@ -136,18 +132,17 @@ nav .logo-text {
     transform: scale(1.2);
 }
 
-/* Styl dla karuzeli ogłoszeń */
 .announcements-carousel {
     width: 50%;
     height: auto;
     margin: 0;
     padding: 20px;
-    background-color: transparent; /* Usunięcie białego tła */
+    background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 50%;
-    left: 20px; /* Przesunięcie do lewej strony */
+    left: 20px;
     transform: translateY(-50%);
 }
 
@@ -155,7 +150,7 @@ nav .logo-text {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 150px; /* Zmniejszenie wysokości karuzeli */
+    height: 150px;
     display: flex;
     align-items: center;
 }
@@ -167,10 +162,15 @@ nav .logo-text {
 
 .carousel-content {
     background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    color: var(--text-dark);
     border-radius: 10px;
     padding: 1rem;
     text-align: left;
+}
+
+body.light-theme .carousel-content {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: var(--text-light);
 }
 
 .carousel-content h3 {
@@ -182,7 +182,6 @@ nav .logo-text {
     font-size: 1rem;
 }
 
-/* Styl dla wskaźników i przycisków karuzeli */
 .carousel-controls {
     display: flex;
     justify-content: center;
@@ -227,7 +226,6 @@ nav .logo-text {
     background-color: #fff;
 }
 
-/* Styl dla stopki */
 footer {
     background-color: rgba(51, 51, 51, 0.8);
     color: #fff;
@@ -238,6 +236,11 @@ footer {
     bottom: 0;
     width: 100%;
     font-size: 0.8rem;
+}
+
+body.light-theme footer {
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
 
 /* Media Queries dla urządzeń mobilnych */
@@ -259,11 +262,11 @@ footer {
     }
 
     .main-header h1 {
-        font-size: 1.5rem; /* Zmniejszony rozmiar */
+        font-size: 1.5rem;
     }
 
     .main-header p {
-        font-size: 0.9rem; /* Zmniejszony rozmiar */
+        font-size: 0.9rem;
     }
 
     .login-button {
@@ -289,11 +292,11 @@ footer {
 /* Media Queries dla tabletów */
 @media (min-width: 769px) and (max-width: 1024px) {
     .main-header h1 {
-        font-size: 1.8rem; /* Zmniejszony rozmiar */
+        font-size: 1.8rem;
     }
 
     .main-header p {
-        font-size: 1.1rem; /* Zmniejszony rozmiar */
+        font-size: 1.1rem;
     }
 
     .login-button {
