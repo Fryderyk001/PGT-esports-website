@@ -206,18 +206,7 @@ footer {
 .social-container {
     position: fixed;
     top: 150px;
-    right: -100px; /* Początkowo ukryte */
-    z-index: 1000;
-    transition: right 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.social-container {
-    position: fixed;
-    top: 150px;
-    right: 0;
+    right: -100px; /* Start hidden */
     z-index: 1000;
     display: flex;
     flex-direction: column;
@@ -227,7 +216,7 @@ footer {
 
 .social-tab {
     width: 40px;
-    height: 60px;
+    height: 40px;
     background-color: #333;
     color: white;
     cursor: pointer;
@@ -242,7 +231,6 @@ footer {
     flex-direction: column;
     align-items: center;
     background-color: transparent;
-    right: -100px; /* Początkowo ukryte */
     transition: right 0.3s ease;
 }
 
@@ -257,16 +245,11 @@ footer {
     height: 40px;
 }
 
-.social-container:hover .social-icons {
-    right: 0; /* Wysuwa kontener przy najechaniu */
+.social-container:hover {
+    right: 0; /* Show container on hover */
 }
 
 .tab-icon {
     font-size: 20px;
     transition: transform 0.3s ease;
 }
-
-.social-container:hover .tab-icon {
-    transform: rotate(90deg);
-}
-
