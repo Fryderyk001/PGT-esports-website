@@ -31,7 +31,7 @@
         </nav>
         
         <div class="background-image">
-            <!-- Tło zostało usunięte -->
+            <!-- Tło -->
         </div>
         
         <div class="social-media-sidebar">
@@ -71,30 +71,6 @@
                 menuItem[i].classList.add('active');
             }
         }
-
-        // Handle announcement form submission
-        document.getElementById('announcement-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const title = document.getElementById('announcement-title').value;
-            const content = document.getElementById('announcement-content').value;
-
-            fetch('/api/announcements', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ title, content })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message === 'Announcement added successfully') {
-                    addAnnouncement(title, content);
-                } else {
-                    alert('Failed to add announcement');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        });
     </script>
 </body>
 </html>
