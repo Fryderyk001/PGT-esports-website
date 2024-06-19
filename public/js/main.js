@@ -30,4 +30,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     showItem(currentIndex);
+
+    // Theme toggle functionality
+    const toggleDark = document.getElementById('toggle-dark');
+    const toggleLight = document.getElementById('toggle-light');
+    const body = document.body;
+
+    function setTheme(theme) {
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+            toggleLight.style.display = 'none';
+            toggleDark.style.display = 'block';
+        } else {
+            body.classList.remove('light-theme');
+            toggleDark.style.display = 'none';
+            toggleLight.style.display = 'block';
+        }
+    }
+
+    toggleDark.addEventListener('click', () => {
+        setTheme('light');
+        localStorage.setItem('theme', 'light');
+    });
+
+    toggleLight.addEventListener('click', () => {
+        setTheme('dark');
+        localStorage.setItem('theme', 'dark');
+    });
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
 });
