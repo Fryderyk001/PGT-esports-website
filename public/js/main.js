@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const socialTab = document.getElementById('social-tab');
-    const socialIcons = document.getElementById('social-icons');
+    const socialTab = document.querySelector('.social-tab');
+    const socialIcons = document.querySelector('.social-icons');
 
     socialTab.addEventListener('mouseover', () => {
         socialIcons.style.right = '0';
@@ -74,4 +74,3 @@ document.addEventListener('DOMContentLoaded', function() {
         socialIcons.style.right = '-150px';
     });
 });
-
