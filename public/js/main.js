@@ -12,16 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    document.querySelector('.carousel-prev').addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
-        showItem(currentIndex);
-    });
-
-    document.querySelector('.carousel-next').addEventListener('click', () => {
-        currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
-        showItem(currentIndex);
-    });
-
     indicators.forEach((indicator, i) => {
         indicator.addEventListener('click', () => {
             currentIndex = i;
