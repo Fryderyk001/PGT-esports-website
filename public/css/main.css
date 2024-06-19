@@ -218,9 +218,10 @@ footer {
 
 .social-tab {
     position: fixed;
-    top: 100px; /* Ustawienie pod nawigacją */
+    top: 150px; /* Dostosuj w zależności od potrzeby */
     right: 0;
     width: 40px;
+    height: 60px; /* Dodanie wysokości dla języczka */
     background-color: #333;
     color: white;
     cursor: pointer;
@@ -242,6 +243,7 @@ footer {
     flex-direction: column;
     align-items: center;
     margin-left: 10px;
+    margin-top: 10px; /* Dostosuj w zależności od potrzeby */
 }
 
 .social-icon {
@@ -259,4 +261,3 @@ footer {
     font-size: 20px;
     transform: rotate(90deg); /* Obrót strzałki w prawo */
 }
-
