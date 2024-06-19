@@ -119,14 +119,14 @@ footer {
     transition: background-color 0.3s, color 0.3s;
 }
 
-// Carusele.........
+
 
 
 .announcements-carousel {
     position: relative;
     margin: 20px auto;
     max-width: 800px;
-    background: rgba(0, 0, 0, 0.7);
+    background: #000; /* Zawsze czarne tło */
     border-radius: 10px;
     overflow: hidden;
 }
@@ -143,7 +143,7 @@ footer {
 }
 
 .carousel-content {
-    color: var(--nav-text);
+    color: #fff; /* Tekst biały, aby kontrastował z czarnym tłem */
     text-align: center;
 }
 
@@ -160,7 +160,7 @@ footer {
 .carousel-next {
     background: none;
     border: none;
-    color: var(--nav-text);
+    color: #fff; /* Kolor przycisków na biały */
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
@@ -169,7 +169,7 @@ footer {
 
 .carousel-prev:hover,
 .carousel-next:hover {
-    color: var(--nav-active);
+    color: #f60; /* Pomarańczowy kolor po najechaniu */
 }
 
 .carousel-indicators {
@@ -182,12 +182,12 @@ footer {
 .indicator {
     width: 10px;
     height: 10px;
-    background: var(--nav-text);
+    background: #fff; /* Kolor wskaźników na biały */
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 .indicator.active {
-    background: var(--nav-active);
+    background: #f60; /* Aktywny wskaźnik w pomarańczowym kolorze */
 }
