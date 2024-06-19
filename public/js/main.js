@@ -1,44 +1,33 @@
-// Main JavaScript file
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.indicator');
+    let currentIndex = 0;
 
-// Function to handle navigation bar interaction
-document.addEventListener('DOMContentLoaded', function () {
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('mouseover', function () {
-            link.style.transform = 'scale(1.1)';
+    function showItem(index) {
+        carouselItems.forEach((item, i) => {
+            item.style.transform = `translateX(${100 * (i - index)}%)`;
         });
-        link.addEventListener('mouseout', function () {
-            link.style.transform = 'scale(1)';
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+    }
+
+    document.querySelector('.carousel-prev').addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
+        showItem(currentIndex);
+    });
+
+    document.querySelector('.carousel-next').addEventListener('click', () => {
+        currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
+        showItem(currentIndex);
+    });
+
+    indicators.forEach((indicator, i) => {
+        indicator.addEventListener('click', () => {
+            currentIndex = i;
+            showItem(currentIndex);
         });
     });
 
-    // Social media icons animation
-    const socialIcons = document.querySelectorAll('.social-icon');
-    socialIcons.forEach(icon => {
-        icon.addEventListener('mouseover', function () {
-            icon.style.transform = 'rotate(15deg) scale(1.1)';
-        });
-        icon.addEventListener('mouseout', function () {
-            icon.style.transform = 'rotate(0) scale(1)';
-        });
-    });
-
-    // Auto logout after 15 minutes of inactivity
-    let timer;
-    window.onload = resetTimer;
-    window.onmousemove = resetTimer;
-    window.onmousedown = resetTimer; // catches touchscreen presses
-    window.ontouchstart = resetTimer;
-    window.onclick = resetTimer; // catches touchpad clicks
-    window.onkeypress = resetTimer;
-
-    function logout() {
-        alert('You have been logged out due to inactivity.');
-        window.location.href = '/logout'; // Adjust the logout URL accordingly
-    }
-
-    function resetTimer() {
-        clearTimeout(timer);
-        timer = setTimeout(logout, 900000); // 15 minutes in milliseconds
-    }
+    showItem(currentIndex);
 });
