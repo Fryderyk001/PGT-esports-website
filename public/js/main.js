@@ -53,17 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
 });
-
 document.addEventListener('DOMContentLoaded', function() {
     const socialContainer = document.querySelector('.social-container');
-    const socialTab = document.querySelector('.social-tab');
-    const socialIcons = document.querySelector('.social-icons');
 
     socialContainer.addEventListener('mouseover', () => {
-        socialIcons.style.right = '0';
+        socialContainer.style.right = '0';
     });
 
     socialContainer.addEventListener('mouseout', () => {
-        socialIcons.style.right = '-100px';
+        socialContainer.style.right = '-100px';
     });
 });
