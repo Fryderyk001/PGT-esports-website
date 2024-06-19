@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
 
     function showItem(index) {
-        const carousel = document.querySelector('.carousel');
-        carousel.style.transform = `translateX(${-100 * index}%)`;
+        carouselItems.forEach((item, i) => {
+            item.style.transform = `translateX(${100 * (i - index)}%)`;
+        });
         indicators.forEach((indicator, i) => {
             indicator.classList.toggle('active', i === index);
         });
@@ -30,17 +31,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     showItem(currentIndex);
 
-    const sunButton = document.querySelector('.sun-button');
-    const moonButton = document.querySelector('.moon-button');
+    // Theme toggle functionality
+    const toggleDark = document.getElementById('toggle-dark');
+    const toggleLight = document.getElementById('toggle-light');
     const body = document.body;
 
-    sunButton.addEventListener('click', () => {
-        body.classList.remove('dark-theme');
-        body.classList.add('light-theme');
+    function setTheme(theme) {
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+            body.classList.remove('dark-theme');
+            toggleLight.style.display = 'none';
+            toggleDark.style.display = 'block';
+        } else {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+            toggleDark.style.display = 'none';
+            toggleLight.style.display = 'block';
+        }
+    }
+
+    toggleDark.addEventListener('click', () => {
+        setTheme('dark');
+        localStorage.setItem('theme', 'dark');
     });
 
-    moonButton.addEventListener('click', () => {
-        body.classList.remove('light-theme');
-        body.classList.add('dark-theme');
+    toggleLight.addEventListener('click', () => {
+        setTheme('light');
+        localStorage.setItem('theme', 'light');
     });
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
 });
