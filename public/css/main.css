@@ -115,9 +115,6 @@ footer {
     overflow: hidden;
 }
 
-
-
-
 .announcements-carousel {
     position: absolute; /* Ustawienie absolutne dla precyzyjnego pozycjonowania */
     left: 20px; /* Odstęp od lewej krawędzi */
@@ -203,8 +200,6 @@ footer {
     background: white;
 }
 
-
-
 .right-side-image {
     position: absolute;
     right: 0;
@@ -213,8 +208,6 @@ footer {
     max-height: calc(100% - 50px); /* Dostosowanie do wielkości strony, uwzględniając pasek nawigacji */
     object-fit: cover;
 }
-
-
 
 .social-tab {
     position: fixed;
