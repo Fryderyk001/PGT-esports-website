@@ -39,6 +39,7 @@ body.light-theme .content {
     background-color: transparent;
 }
 
+/* Style nawigacji */
 nav {
     background-color: var(--nav-background);
     color: var(--nav-text);
@@ -46,13 +47,18 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 nav .logo-text {
     font-size: 1.5rem;
     color: var(--nav-active);
-    margin-right: 1rem;
+    margin-right: 2rem;
+}
+
+.navigation-links {
+    display: flex;
+    flex-grow: 1;
 }
 
 .navigation-links a {
@@ -69,18 +75,9 @@ nav .logo-text {
     transform: scale(1.1);
 }
 
-body.light-theme nav {
-    background-color: var(--background-light);
-    color: var(--text-light);
-}
-
-body.light-theme .navigation-links a {
-    color: var(--text-light);
-}
-
-body.light-theme .navigation-links a:hover,
-body.light-theme .navigation-links a.active {
-    color: var(--nav-active);
+.login-container {
+    display: flex;
+    align-items: center;
 }
 
 .login-button {
@@ -92,6 +89,7 @@ body.light-theme .navigation-links a.active {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     font-size: 0.9rem;
+    margin-left: 0.5rem;
 }
 
 .login-button img {
@@ -114,6 +112,8 @@ body.light-theme .navigation-links a.active {
 .theme-toggle:hover {
     transform: scale(1.2);
 }
+
+
 
 .social-media-sidebar {
     position: fixed;
