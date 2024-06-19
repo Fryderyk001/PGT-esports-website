@@ -62,6 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     socialContainer.addEventListener('mouseout', () => {
-        socialContainer.style.right = '-150px';
+        socialContainer.style.right = '-100px';
     });
 });
