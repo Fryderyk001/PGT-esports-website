@@ -108,4 +108,46 @@ nav .logo-text {
     transform: scale(1.2);
 }
 
-/* Rest of your CSS... */
+.container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.red {
+    border: 2px solid red;
+}
+
+.yellow {
+    border: 2px solid yellow;
+}
+
+.green {
+    border: 2px solid green;
+}
+
+/* Flexbox layout for the content */
+.content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+}
+
+.manager {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.manager-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
