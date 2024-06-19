@@ -126,41 +126,51 @@ footer {
     position: relative;
     margin: 20px auto;
     max-width: 800px;
-    background: #000; /* Zawsze czarne tło */
+    background: transparent; /* Przezroczyste tło */
+    padding: 10px;
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Wypozycjonuj do lewej */
 }
 
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .carousel-item {
     min-width: 100%;
     box-sizing: border-box;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left; /* Wyrównanie tekstu do lewej */
 }
 
 .carousel-content {
-    color: #fff; /* Tekst biały, aby kontrastował z czarnym tłem */
-    text-align: center;
+    border: 1px solid #f60; /* Pomarańczowa ramka */
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--carousel-text-color); /* Kolor tekstu zależny od motywu */
 }
 
 .carousel-controls {
-    position: absolute;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    bottom: 10px;
+    margin-top: 10px;
 }
 
 .carousel-prev,
 .carousel-next {
     background: none;
     border: none;
-    color: #fff; /* Kolor przycisków na biały */
+    color: var(--carousel-button-color); /* Kolor przycisków zależny od motywu */
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
@@ -182,7 +192,7 @@ footer {
 .indicator {
     width: 10px;
     height: 10px;
-    background: #fff; /* Kolor wskaźników na biały */
+    background: var(--carousel-indicator-color); /* Kolor wskaźników zależny od motywu */
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -190,4 +200,32 @@ footer {
 
 .indicator.active {
     background: #f60; /* Aktywny wskaźnik w pomarańczowym kolorze */
+}
+
+/* Motyw jasny */
+.light-theme .carousel-content {
+    color: black;
+}
+
+.light-theme .carousel-prev,
+.light-theme .carousel-next {
+    color: black;
+}
+
+.light-theme .indicator {
+    background: black;
+}
+
+/* Motyw ciemny */
+.dark-theme .carousel-content {
+    color: white;
+}
+
+.dark-theme .carousel-prev,
+.dark-theme .carousel-next {
+    color: white;
+}
+
+.dark-theme .indicator {
+    background: white;
 }
