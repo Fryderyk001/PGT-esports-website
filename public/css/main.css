@@ -3,20 +3,25 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
+    background: url('../images/main-background.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    color: #fff; /* Ustaw kolor tekstu na biały, aby był czytelny na tle */
 }
 
 .content {
     flex: 1;
+    background-color: rgba(0, 0, 0, 0.7); /* Półprzezroczyste tło dla zawartości, aby tekst był czytelny */
+    padding: 20px;
 }
 
 /* Styl dla nawigacji */
 nav {
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.8); /* Półprzezroczysty szary */
     color: #fff;
     padding: 0.5rem 1rem;
     display: flex;
@@ -107,7 +112,7 @@ nav .logo img {
     flex-direction: column;
     align-items: center;
     padding: 0.5rem;
-    background-color: #f9f9f9;
+    background-color: rgba(249, 249, 249, 0.9);
     border-left: 1px solid #ddd;
     border-radius: 5px 0 0 5px;
 }
@@ -128,7 +133,7 @@ nav .logo img {
 
 /* Styl dla sekcji ogłoszeń */
 .announcements {
-    background-color: #f9f9f9;
+    background-color: rgba(249, 249, 249, 0.9);
     padding: 1.5rem;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -137,7 +142,7 @@ nav .logo img {
 
 .announcement {
     padding: 1rem;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 1rem;
@@ -145,7 +150,7 @@ nav .logo img {
 
 /* Styl dla stopki */
 footer {
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.8);
     color: #fff;
     text-align: center;
     padding: 0.5rem;
