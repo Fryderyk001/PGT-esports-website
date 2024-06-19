@@ -122,11 +122,16 @@ nav .logo img {
 /* Styl dla karuzeli ogłoszeń */
 .announcements-carousel {
     width: 50%;
-    margin: 0 auto;
+    height: auto;
+    margin: 0;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Przesunięcie do lewej strony */
+    transform: translateY(-50%);
 }
 
 .carousel {
