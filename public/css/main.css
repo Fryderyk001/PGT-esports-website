@@ -193,10 +193,9 @@ footer {
 .indicator.active {
     background: #f60;
 }
-
 .right-side-image {
     position: absolute;
-    right: 25%; /* Adjust this value to move the image closer to the center */
+    right: 15%; /* Adjusted this value to move the image closer to the right edge */
     bottom: 0;
     max-width: 50%;
     max-height: calc(100% - 50px); /* Dostosowanie do wielkości strony, uwzględniając pasek nawigacji */
