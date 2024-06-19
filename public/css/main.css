@@ -3,20 +3,32 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('../images/main-background.png') no-repeat center center fixed;
-    background-size: cover;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    color: #fff; /* Ustaw kolor tekstu na biały, aby był czytelny na tle */
+body.light-theme {
+    --background-color: #ffffff;
+    --text-color: #000000;
+}
+
+body.dark-theme {
+    --background-color: #333333;
+    --text-color: #ffffff;
 }
 
 .content {
     flex: 1;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Półprzezroczyste tło dla zawartości, aby tekst był czytelny */
+    background-color: var(--background-content);
+}
+
+body.light-theme .content {
+    --background-content: #f0f0f0;
+}
+
+body.dark-theme .content {
+    --background-content: rgba(0, 0, 0, 0.7);
 }
 
 /* Styl dla nawigacji */
@@ -165,19 +177,17 @@ nav .logo img {
 }
 
 .carousel-controls {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .carousel-prev,
-.carousel-next,
-.carousel-prev-indicator,
-.carousel-next-indicator {
+.carousel-next {
     background: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
@@ -188,16 +198,16 @@ nav .logo img {
 }
 
 .carousel-prev:hover,
-.carousel-next:hover,
-.carousel-prev-indicator:hover,
-.carousel-next-indicator:hover {
+.carousel-next:hover {
     background: rgba(0, 0, 0, 0.8);
 }
 
 .carousel-indicators {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 5px;
+    margin-top: 10px;
 }
 
 .carousel-indicators .indicator {
@@ -285,15 +295,4 @@ footer {
     .login-button {
         padding: 0.5rem 1rem;
     }
-}
-
-/* Motywy dla różnych preferencji kolorystycznych */
-body.light-theme {
-    background: url('../images/main-background-light.png') no-repeat center center fixed;
-    background-size: cover;
-}
-
-body.dark-theme {
-    background: url('../images/main-background-dark.png') no-repeat center center fixed;
-    background-size: cover;
 }
