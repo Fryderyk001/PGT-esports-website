@@ -55,17 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const socialTab = document.querySelector('.social-tab');
-    const socialIcons = document.querySelector('.social-icons');
+    const socialTab = document.getElementById('social-tab');
+    const socialIcons = document.getElementById('social-icons');
 
     function showIcons() {
         socialIcons.style.right = '0';
-        socialTab.style.right = '150px';
+        socialTab.style.right = '110px'; // Adjust according to the width of socialIcons
     }
 
     function hideIcons() {
         socialIcons.style.right = '-150px';
-        socialTab.style.right = '0';
+        socialTab.style.right = '-40px'; // Adjust according to the width of socialIcons
     }
 
     socialTab.addEventListener('mouseover', showIcons);
