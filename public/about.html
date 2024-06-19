@@ -3,58 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - PGT Esports Tournaments</title>
+    <title>About PGT Esports Tournaments</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/about.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="images/PGT_LOGO1.png" alt="PGT Logo">
-        </div>
-        <div class="navigation-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="tournaments.html">Tournaments</a>
-            <a href="results.html">Results</a>
-            <a href="partners.html">Partners</a>
-            <a href="contact.html">Contact</a>
-            <a href="regulations.html">Regulations</a>
-            <button class="login-button" onclick="window.location.href='https://discord.com/login'">
-                <img src="images/discord-logo.png" alt="Discord Logo"> Login with Discord
-            </button>
-        </div>
-    </nav>
-    
-    <header class="about-header">
-        <h2>About PGT Esports Tournaments</h2>
-        <p>PGT is an organization that organizes private tournaments for both professional and non-professional players, bringing them together on our Discord server.</p>
-    </header>
-
-    <section class="about-content">
-        <h3>Our Mission</h3>
-        <p>Our mission is to create a vibrant community of gamers who can compete in various esports tournaments, improve their skills, and enjoy the thrill of competition.</p>
-        <h3>Our Team</h3>
-        <div class="team">
-            <div class="team-member">
-                <h4>John Doe</h4>
-                <p>Founder & CEO</p>
+    <div class="wrapper">
+        <nav>
+            <div class="logo-text">PGT</div>
+            <div class="navigation-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="tournaments.html">Tournaments</a>
+                <a href="results.html">Results</a>
+                <a href="partners.html">Partners</a>
+                <a href="contact.html">Contact</a>
+                <a href="regulations.html">Regulations</a>
             </div>
-            <div class="team-member">
-                <h4>Jane Smith</h4>
-                <p>Head of Operations</p>
+            <div class="login-container">
+                <img src="images/sun.png" alt="Dark Theme" id="toggle-dark" class="theme-toggle">
+                <img src="images/moon.png" alt="Light Theme" id="toggle-light" class="theme-toggle" style="display: none;">
+                <button class="login-button">
+                    <img src="images/discord-logo.png" alt="Discord Logo">
+                    Login with Discord
+                </button>
             </div>
-            <div class="team-member">
-                <h4>Mike Johnson</h4>
-                <p>Lead Developer</p>
-            </div>
+        </nav>
+
+        <div class="content">
+            <h1>About Us</h1>
+            <p>Welcome to PGT Esports Tournaments! We are dedicated to providing exciting and competitive esports tournaments for gamers of all levels.</p>
+            <p>Our community is built on the passion and enthusiasm of gamers from around the world. Join us and be a part of the action!</p>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
-    </footer>
-
-    <script src="js/about.js"></script>
+    </div>
 </body>
 </html>
