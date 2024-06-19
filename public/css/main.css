@@ -134,19 +134,107 @@ nav .logo img {
     transform: scale(1.2);
 }
 
-/* Styl dla sekcji ogłoszeń */
-.announcements {
-    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla sekcji ogłoszeń */
-    padding: 1rem; /* Zmniejszone wypełnienie */
-    border-radius: 5px;
-    margin-top: 1rem; /* Zmniejszony margines */
+/* Styl dla karuzeli ogłoszeń */
+.announcements-carousel {
+    margin-top: 1rem;
 }
 
-.announcement {
-    padding: 0.5rem; /* Zmniejszone wypełnienie */
-    background-color: rgba(255, 255, 255, 0.9);
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
+    border-radius: 10px;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carousel-content {
+    padding: 1rem;
+    text-align: left;
+}
+
+.carousel-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.carousel-content p {
+    font-size: 1rem;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-prev,
+.carousel-next {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Styl dla sekcji administracyjnej */
+.admin-section {
+    background-color: rgba(255, 255, 255, 0.1); /* Półprzezroczyste tło dla sekcji administracyjnej */
+    padding: 1rem;
     border-radius: 5px;
-    margin-bottom: 0.5rem; /* Zmniejszony margines */
+    margin-top: 2rem;
+}
+
+.admin-section h2 {
+    margin-bottom: 1rem;
+}
+
+.admin-section form div {
+    margin-bottom: 1rem;
+}
+
+.admin-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.admin-section input[type="text"],
+.admin-section textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-section button {
+    background-color: #FF6347;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-section button:hover {
+    background-color: #e55337;
 }
 
 /* Styl dla stopki */
