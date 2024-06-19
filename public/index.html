@@ -7,65 +7,67 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="content">
-        <nav>
-            <div class="nav-left">
-                <div class="logo">
-                    <h1 class="logo-text">PGT</h1>
-                </div>
-                <div class="navigation-links">
-                    <a href="/" class="nav-link">Home</a>
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="tournaments.html" class="nav-link">Tournaments</a>
-                    <a href="results.html" class="nav-link">Results</a>
-                    <a href="partners.html" class="nav-link">Partners</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
-                    <a href="regulations.html" class="nav-link">Regulations</a>
-                </div>
-            </div>
-            <div class="nav-right">
-                <button class="login-button" onclick="window.location.href='/auth/discord'">
-                    <img src="images/discord-logo.png" alt="Discord Logo"> Login with Discord
-                </button>
-            </div>
-        </nav>
-        
-        <div class="background-image">
-            <!-- Tło -->
-        </div>
-        
-        <div class="social-media-sidebar">
-            <a href="https://discord.com" target="_blank"><img src="images/discord-logo.png" alt="Discord" class="social-icon"></a>
-            <a href="https://twitch.tv" target="_blank"><img src="images/twitch-logo.png" alt="Twitch" class="social-icon"></a>
-            <a href="https://tiktok.com" target="_blank"><img src="images/tiktok-logo.png" alt="TikTok" class="social-icon"></a>
-        </div>
-
-        <section class="announcements-carousel">
-            <h2>Announcements</h2>
-            <div class="carousel">
-                <div class="carousel-item">
-                    <div class="carousel-content">
-                        <h3>Welcome to our new members!</h3>
-                        <p>Join the upcoming tournament this weekend.</p>
+    <div class="wrapper">
+        <div class="content">
+            <nav>
+                <div class="nav-left">
+                    <div class="logo">
+                        <h1 class="logo-text">PGT</h1>
+                    </div>
+                    <div class="navigation-links">
+                        <a href="/" class="nav-link">Home</a>
+                        <a href="about.html" class="nav-link">About</a>
+                        <a href="tournaments.html" class="nav-link">Tournaments</a>
+                        <a href="results.html" class="nav-link">Results</a>
+                        <a href="partners.html" class="nav-link">Partners</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="regulations.html" class="nav-link">Regulations</a>
                     </div>
                 </div>
-                <!-- Dodaj więcej elementów karuzeli tutaj -->
-            </div>
-            <div class="carousel-controls">
-                <button class="carousel-prev">&lt;</button>
-                <div class="carousel-indicators">
-                    <span class="indicator active"></span>
-                    <span class="indicator"></span>
-                    <span class="indicator"></span>
-                    <!-- Dodaj więcej wskaźników w zależności od liczby elementów karuzeli -->
+                <div class="nav-right">
+                    <button class="login-button" onclick="window.location.href='/auth/discord'">
+                        <img src="images/discord-logo.png" alt="Discord Logo"> Login with Discord
+                    </button>
                 </div>
-                <button class="carousel-next">&gt;</button>
+            </nav>
+            
+            <div class="background-image">
+                <!-- Tło -->
             </div>
-        </section>
+            
+            <div class="social-media-sidebar">
+                <a href="https://discord.com" target="_blank"><img src="images/discord-logo.png" alt="Discord" class="social-icon"></a>
+                <a href="https://twitch.tv" target="_blank"><img src="images/twitch-logo.png" alt="Twitch" class="social-icon"></a>
+                <a href="https://tiktok.com" target="_blank"><img src="images/tiktok-logo.png" alt="TikTok" class="social-icon"></a>
+            </div>
+
+            <section class="announcements-carousel">
+                <h2>Announcements</h2>
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <h3>Welcome to our new members!</h3>
+                            <p>Join the upcoming tournament this weekend.</p>
+                        </div>
+                    </div>
+                    <!-- Dodaj więcej elementów karuzeli tutaj -->
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-prev">&lt;</button>
+                    <div class="carousel-indicators">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                        <span class="indicator"></span>
+                        <!-- Dodaj więcej wskaźników w zależności od liczby elementów karuzeli -->
+                    </div>
+                    <button class="carousel-next">&gt;</button>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
+        </footer>
     </div>
-    <footer>
-        <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
-    </footer>
     <script src="js/carousel.js"></script>
     <script>
         // Highlight the active link
