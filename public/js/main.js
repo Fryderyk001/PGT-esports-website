@@ -55,22 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const socialTab = document.querySelector('.social-tab');
-    const socialIcons = document.querySelector('.social-icons');
+    const socialContainer = document.querySelector('.social-container');
 
-    function showIcons() {
-        socialIcons.style.right = '0';
-        socialTab.style.right = '150px'; // Adjust according to the width of socialIcons
-    }
+    socialContainer.addEventListener('mouseover', () => {
+        socialContainer.classList.add('expanded');
+    });
 
-    function hideIcons() {
-        socialIcons.style.right = '-150px';
-        socialTab.style.right = '0'; // Adjust according to the width of socialIcons
-    }
-
-    socialTab.addEventListener('mouseover', showIcons);
-    socialIcons.addEventListener('mouseover', showIcons);
-
-    socialTab.addEventListener('mouseout', hideIcons);
-    socialIcons.addEventListener('mouseout', hideIcons);
+    socialContainer.addEventListener('mouseout', () => {
+        socialContainer.classList.remove('expanded');
+    });
 });
