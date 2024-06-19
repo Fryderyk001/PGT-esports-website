@@ -5,44 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PGT Esports Tournaments</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
-        <div class="content">
-            <nav>
-                <div class="nav-left">
-                    <div class="logo">
-                        <h1 class="logo-text">PGT</h1>
-                    </div>
-                    <div class="navigation-links">
-                        <a href="/" class="nav-link">Home</a>
-                        <a href="about.html" class="nav-link">About</a>
-                        <a href="tournaments.html" class="nav-link">Tournaments</a>
-                        <a href="results.html" class="nav-link">Results</a>
-                        <a href="partners.html" class="nav-link">Partners</a>
-                        <a href="contact.html" class="nav-link">Contact</a>
-                        <a href="regulations.html" class="nav-link">Regulations</a>
-                    </div>
+        <nav>
+            <div class="nav-left">
+                <div class="logo-text">PGT</div>
+                <div class="navigation-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="tournaments.html">Tournaments</a>
+                    <a href="results.html">Results</a>
+                    <a href="partners.html">Partners</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="regulations.html">Regulations</a>
                 </div>
-                <div class="nav-right">
-                    <button class="login-button" onclick="window.location.href='/auth/discord'">
-                        <img src="images/discord-logo.png" alt="Discord Logo"> Login with Discord
-                    </button>
-                </div>
-            </nav>
-            
-            <div class="background-image">
-                <!-- Tło -->
             </div>
-            
-            <div class="social-media-sidebar">
-                <a href="https://discord.com" target="_blank"><img src="images/discord-logo.png" alt="Discord" class="social-icon"></a>
-                <a href="https://twitch.tv" target="_blank"><img src="images/twitch-logo.png" alt="Twitch" class="social-icon"></a>
-                <a href="https://tiktok.com" target="_blank"><img src="images/tiktok-logo.png" alt="TikTok" class="social-icon"></a>
+            <div class="nav-right">
+                <button class="login-button">
+                    <img src="images/discord-logo.png" alt="Discord Logo">
+                    Login with Discord
+                </button>
             </div>
+        </nav>
 
+        <div class="content">
             <section class="announcements-carousel">
-                <h2>Announcements</h2>
                 <div class="carousel">
                     <div class="carousel-item">
                         <div class="carousel-content">
@@ -50,7 +39,7 @@
                             <p>Join the upcoming tournament this weekend.</p>
                         </div>
                     </div>
-                    <!-- Dodaj więcej elementów karuzeli tutaj -->
+                    <!-- Add more carousel items here -->
                 </div>
                 <div class="carousel-controls">
                     <button class="carousel-prev">&lt;</button>
@@ -58,38 +47,15 @@
                         <span class="indicator active"></span>
                         <span class="indicator"></span>
                         <span class="indicator"></span>
-                        <!-- Dodaj więcej wskaźników w zależności od liczby elementów karuzeli -->
                     </div>
                     <button class="carousel-next">&gt;</button>
                 </div>
             </section>
         </div>
+
         <footer>
             <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
         </footer>
     </div>
-    <script src="js/carousel.js"></script>
-    <script>
-        // Highlight the active link
-        const currentLocation = location.href;
-        const menuItem = document.querySelectorAll('.nav-link');
-        const menuLength = menuItem.length;
-        for (let i = 0; i < menuLength; i++) {
-            if (menuItem[i].href === currentLocation) {
-                menuItem[i].classList.add('active');
-            }
-        }
-
-        // Zmiana motywu w zależności od ustawień systemowych
-        function handleThemeChange(event) {
-            const darkModeOn = event.matches;
-            document.body.classList.toggle('dark-theme', darkModeOn);
-            document.body.classList.toggle('light-theme', !darkModeOn);
-        }
-
-        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        handleThemeChange(darkModeMediaQuery);
-        darkModeMediaQuery.addEventListener('change', handleThemeChange);
-    </script>
 </body>
 </html>
