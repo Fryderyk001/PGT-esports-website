@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Tournament</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tournaments.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/PGT_LOGO1.png" alt="PGT Logo">
+        </div>
+        <div class="navigation-links">
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="results.html">Results</a>
+            <a href="partners.html">Partners</a>
+            <a href="contact.html">Contact</a>
+            <a href="regulations.html">Regulations</a>
+            <button class="login-button" onclick="window.location.href='/logout'">
+                Logout
+            </button>
+        </div>
+    </nav>
+    
+    <header class="tournaments-header">
+        <h2>Edit Tournament</h2>
+    </header>
+
+    <section class="edit-tournament">
+        <form action="/edit-tournament/<%= tournament.id %>" method="post">
+            <label for="name">Tournament Name:</label>
+            <input type="text" id="name" name="name" value="<%= tournament.name %>" required>
+
+            <label for="date">Tournament Date:</label>
+            <input type="date" id="date" name="date" value="<%= tournament.date %>" required>
+
+            <label for="end-date">End of Registration Date:</label>
+            <input type="date" id="end-date" name="end-date" value="<%= tournament.endDate %>" required>
+
+            <label for="prize">Prize Pool:</label>
+            <input type="number" id="prize" name="prize" value="<%= tournament.prize %>" required>
+
+            <label for="min-participants">Minimum Participants:</label>
+            <input type="number" id="min-participants" name="min-participants" value="<%= tournament.minParticipants %>" required>
+
+            <label for="type">Tournament Type:</label>
+            <select id="type" name="type" required>
+                <option value="1vs1" <%= tournament.type == "1vs1" ? "selected" : "" %>>1vs1</option>
+                <option value="3vs3" <%= tournament.type == "3vs3" ? "selected" : "" %>>3vs3</option>
+                <option value="5vs5" <%= tournament.type == "5vs5" ? "selected" : "" %>>5vs5</option>
+            </select>
+
+            <label for="game">Game Type:</label>
+            <input type="text" id="game" name="game" value="<%= tournament.game %>" required>
+
+            <label for="entry">Entry Fee:</label>
+            <input type="text" id="entry" name="entry" value="<%= tournament.entry %>" required>
+
+            <label for="tiply-link">Tiply Link (if applicable):</label>
+            <input type="url" id="tiply-link" name="tiply-link" value="<%= tournament.tiplyLink %>">
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><%= tournament.description %></textarea>
+
+            <button type="submit">Update Tournament</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
+    </footer>
+</body>
+</html>
