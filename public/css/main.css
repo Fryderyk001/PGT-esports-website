@@ -170,16 +170,14 @@ nav .logo img {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     transform: translateY(-50%);
-    visibility: hidden; /* Ukryj przyciski nawigacyjne */
-}
-
-.carousel:hover .carousel-controls {
-    visibility: visible; /* Pokaż przyciski nawigacyjne po najechaniu */
 }
 
 .carousel-prev,
-.carousel-next {
+.carousel-next,
+.carousel-prev-indicator,
+.carousel-next-indicator {
     background: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
@@ -187,27 +185,34 @@ nav .logo img {
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background 0.3s ease;
+    visibility: hidden; /* Ukryj przyciski nawigacyjne */
+}
+
+.carousel:hover .carousel-prev,
+.carousel:hover .carousel-next,
+.carousel:hover .carousel-prev-indicator,
+.carousel:hover .carousel-next-indicator {
+    visibility: visible; /* Pokaż przyciski nawigacyjne po najechaniu */
 }
 
 .carousel-prev:hover,
-.carousel-next:hover {
+.carousel-next:hover,
+.carousel-prev-indicator:hover,
+.carousel-next-indicator:hover {
     background: rgba(0, 0, 0, 0.8);
 }
 
 /* Styl dla wskaźników karuzeli */
 .carousel-indicators {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .carousel-indicators .indicator {
     width: 10px;
     height: 10px;
-    margin: 0 5px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     cursor: pointer;
@@ -290,4 +295,15 @@ footer {
     .login-button {
         padding: 0.5rem 1rem;
     }
+}
+
+/* Motywy dla różnych preferencji kolorystycznych */
+body.light-theme {
+    background: url('../images/main-background-light.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body.dark-theme {
+    background: url('../images/main-background-dark.png') no-repeat center center fixed;
+    background-size: cover;
 }
