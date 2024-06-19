@@ -11,9 +11,9 @@
     --footer-text-light: #000000;
     --footer-text-dark: #ffffff;
     --carousel-background-light: #000000;
-    --carousel-background-dark: #ffffff;
+    --carousel-background-dark: transparent;
     --carousel-text-light: #ffffff;
-    --carousel-text-dark: #000000;
+    --carousel-text-dark: #ffffff;
     --indicator-color-light: #000000;
     --indicator-color-dark: #ffffff;
 }
