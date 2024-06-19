@@ -1,44 +1,19 @@
 const express = require('express');
-const path = require('path');
-const dotenv = require('dotenv');
-const { Client, GatewayIntentBits } = require('discord.js');
 const session = require('express-session');
 const passport = require('passport');
 const DiscordStrategy = require('passport-discord').Strategy;
-
-dotenv.config();
+const bodyParser = require('body-parser');
+const path = require('path');
+require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000;
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
-
-client.once('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.login(process.env.DISCORD_TOKEN);
-
-passport.serializeUser((user, done) => {
-    done(null, user);
-});
-
-passport.deserializeUser((obj, done) => {
-    done(null, obj);
-});
-
-passport.use(new DiscordStrategy({
-    clientID: process.env.DISCORD_CLIENT_ID,
-    clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    callbackURL: process.env.DISCORD_CALLBACK_URL,
-    scope: ['identify', 'guilds', 'guilds.members.read']
-},
-(accessToken, refreshToken, profile, done) => {
-    process.nextTick(() => done(null, profile));
-}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    secret: 'some secret',
+    secret: 'your secret',
     resave: false,
     saveUninitialized: false
 }));
@@ -46,117 +21,72 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+passport.use(new DiscordStrategy({
+    clientID: process.env.DISCORD_CLIENT_ID,
+    clientSecret: process.env.DISCORD_CLIENT_SECRET,
+    callbackURL: process.env.DISCORD_CALLBACK_URL,
+    scope: ['identify', 'guilds']
+}, function(accessToken, refreshToken, profile, done) {
+    done(null, profile);
+}));
+
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((obj, done) => done(null, obj));
 
 app.get('/auth/discord', passport.authenticate('discord'));
-
-app.get('/auth/discord/callback', passport.authenticate('discord', { failureRedirect: '/' }), (req, res) => {
-    res.redirect('/');
-});
+app.get('/auth/discord/callback',
+    passport.authenticate('discord', { failureRedirect: '/' }),
+    (req, res) => {
+        res.redirect('/');
+    }
+);
 
 app.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
 });
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/about.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'about.html'));
+});
 
-const checkAdmin = async (req, res, next) => {
-    if (!req.isAuthenticated() || !req.user) {
-        return res.status(403).send('Forbidden');
-    }
+app.get('/tournaments.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'tournaments.html'));
+});
 
-    const guild = client.guilds.cache.get(process.env.DISCORD_GUILD_ID);
-    const member = await guild.members.fetch(req.user.id);
-    if (member.roles.cache.some(role => ['Root', 'vRoot'].includes(role.name))) {
-        return next();
+app.get('/results.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'results.html'));
+});
+
+app.get('/partners.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'partners.html'));
+});
+
+app.get('/contact.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+});
+
+app.get('/regulations.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'regulations.html'));
+});
+
+// Endpoint to add new announcements
+app.post('/api/announcements', (req, res) => {
+    if (req.isAuthenticated() && req.user.guilds.some(guild => guild.id === process.env.DISCORD_GUILD_ID && (guild.permissions & 0x8))) {
+        const { title, content } = req.body;
+        // Save the announcement to your database or in-memory storage
+        // For simplicity, we are not implementing database logic here
+        res.status(201).json({ message: 'Announcement added successfully' });
     } else {
-        return res.status(403).send('Forbidden');
+        res.status(403).json({ message: 'Forbidden' });
     }
-};
-
-app.get('/', async (req, res) => {
-    let isAdmin = false;
-
-    if (req.isAuthenticated() && req.user) {
-        const guild = client.guilds.cache.get(process.env.DISCORD_GUILD_ID);
-        const member = await guild.members.fetch(req.user.id);
-        if (member.roles.cache.some(role => ['Root', 'vRoot'].includes(role.name))) {
-            isAdmin = true;
-        }
-    }
-
-    res.render('index', { user: req.user, isAdmin });
 });
 
-const tournaments = []; // Przykładowa lista turniejów, docelowo powinna być pobierana z bazy danych
-
-app.get('/add-tournament', checkAdmin, (req, res) => {
-    res.render('add-tournament', { user: req.user, tournaments });
-});
-
-app.post('/add-tournament', checkAdmin, (req, res) => {
-    const newTournament = {
-        id: Date.now(),
-        name: req.body.name,
-        date: req.body.date,
-        endDate: req.body['end-date'],
-        prize: req.body.prize,
-        minParticipants: req.body['min-participants'],
-        type: req.body.type,
-        game: req.body.game,
-        entry: req.body.entry,
-        tiplyLink: req.body['tiply-link'],
-        description: req.body.description
-    };
-    tournaments.push(newTournament);
-    res.redirect('/add-tournament');
-});
-
-app.get('/edit-tournament/:id', checkAdmin, (req, res) => {
-    const tournament = tournaments.find(t => t.id == req.params.id);
-    if (!tournament) {
-        return res.redirect('/add-tournament');
-    }
-    res.render('edit-tournament', { user: req.user, tournament });
-});
-
-app.post('/edit-tournament/:id', checkAdmin, (req, res) => {
-    const tournament = tournaments.find(t => t.id == req.params.id);
-    if (tournament) {
-        tournament.name = req.body.name;
-        tournament.date = req.body.date;
-        tournament.endDate = req.body['end-date'];
-        tournament.prize = req.body.prize;
-        tournament.minParticipants = req.body['min-participants'];
-        tournament.type = req.body.type;
-        tournament.game = req.body.game;
-        tournament.entry = req.body.entry;
-        tournament.tiplyLink = req.body['tiply-link'];
-        tournament.description = req.body.description;
-    }
-    res.redirect('/add-tournament');
-});
-
-app.post('/delete-tournament/:id', checkAdmin, (req, res) => {
-    const index = tournaments.findIndex(t => t.id == req.params.id);
-    if (index !== -1) {
-        tournaments.splice(index, 1);
-    }
-    res.redirect('/add-tournament');
-});
-
-app.get('/profile', (req, res) => {
-    if (!req.isAuthenticated()) {
-        return res.redirect('/');
-    }
-    res.render('profile', { user: req.user });
-});
-
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
