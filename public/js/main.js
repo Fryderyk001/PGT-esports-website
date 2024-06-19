@@ -52,15 +52,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
-});
-document.addEventListener('DOMContentLoaded', function() {
-    const socialContainer = document.querySelector('.social-container');
 
-    socialContainer.addEventListener('mouseover', () => {
-        socialContainer.style.right = '0';
+    // Social tab hover functionality
+    const socialTab = document.querySelector('.social-tab');
+    const socialIcons = document.querySelector('.social-icons');
+
+    socialTab.addEventListener('mouseover', () => {
+        socialIcons.style.right = '0';
+        socialTab.style.right = '0'; // Ensure the tab is visible
     });
 
-    socialContainer.addEventListener('mouseout', () => {
-        socialContainer.style.right = '-100px';
+    socialIcons.addEventListener('mouseover', () => {
+        socialIcons.style.right = '0';
+        socialTab.style.right = '0'; // Ensure the tab is visible
+    });
+
+    socialTab.addEventListener('mouseout', () => {
+        socialIcons.style.right = '-150px';
+        socialTab.style.right = '-150px';
+    });
+
+    socialIcons.addEventListener('mouseout', () => {
+        socialIcons.style.right = '-150px';
+        socialTab.style.right = '-150px';
     });
 });
