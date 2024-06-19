@@ -6,11 +6,16 @@ const passport = require('passport');
 const DiscordStrategy = require('passport-discord').Strategy;
 const bodyParser = require('body-parser');
 const path = require('path');
-require('dotenv').config();
+const fs = require('fs');
+const yaml = require('js-yaml');
+const fetch = require('node-fetch');
+
+// Wczytywanie konfiguracji YAML
+const config = yaml.load(fs.readFileSync('./config.yaml', 'utf8'));
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(config.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -23,16 +28,16 @@ app.use(session({
     secret: 'your secret',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
+    store: MongoStore.create({ mongoUrl: config.MONGO_URI })
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new DiscordStrategy({
-    clientID: process.env.DISCORD_CLIENT_ID,
-    clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    callbackURL: process.env.DISCORD_CALLBACK_URL,
+    clientID: config.DISCORD_CLIENT_ID,
+    clientSecret: config.DISCORD_CLIENT_SECRET,
+    callbackURL: config.DISCORD_CALLBACK_URL,
     scope: ['identify', 'guilds']
 }, function(accessToken, refreshToken, profile, done) {
     done(null, profile);
@@ -82,22 +87,21 @@ app.get('/regulations.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'regulations.html'));
 });
 
-// Endpoint to add new announcements
+// Endpoint do dodawania nowych ogłoszeń
 app.post('/api/announcements', (req, res) => {
-    if (req.isAuthenticated() && req.user.guilds.some(guild => guild.id === process.env.DISCORD_GUILD_ID && (guild.permissions & 0x8))) {
+    if (req.isAuthenticated() && req.user.guilds.some(guild => guild.id === config.DISCORD_GUILD_ID && (guild.permissions & 0x8))) {
         const { title, content } = req.body;
-        // Save the announcement to your database or in-memory storage
-        // For simplicity, we are not implementing database logic here
+        // Zapisz ogłoszenie do bazy danych lub pamięci (dla prostoty nie implementujemy logiki bazy danych tutaj)
         res.status(201).json({ message: 'Announcement added successfully' });
     } else {
         res.status(403).json({ message: 'Forbidden' });
     }
 });
 
-// Endpoint to fetch Discord managers
-const DISCORD_GUILD_ID = process.env.DISCORD_GUILD_ID;
-const DISCORD_ROOT_ID = process.env.DISCORD_ROOT_ID.split(',');
-const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
+// Endpoint do pobierania menedżerów Discorda
+const DISCORD_GUILD_ID = config.DISCORD_GUILD_ID;
+const DISCORD_ROOT_ID = config.DISCORD_ROOT_ID.split(',');
+const DISCORD_BOT_TOKEN = config.DISCORD_BOT_TOKEN;
 
 app.get('/api/discord-managers', async (req, res) => {
     try {
