@@ -10,6 +10,12 @@
     --footer-background-dark: #2c2c2c;
     --footer-text-light: #000000;
     --footer-text-dark: #ffffff;
+    --carousel-background-light: #000000;
+    --carousel-background-dark: #ffffff;
+    --carousel-text-light: #ffffff;
+    --carousel-text-dark: #000000;
+    --indicator-color-light: #000000;
+    --indicator-color-dark: #ffffff;
 }
 
 body {
@@ -24,6 +30,9 @@ body.light-theme {
     --body-background: var(--body-background-light);
     --footer-background: var(--footer-background-light);
     --footer-text: var(--footer-text-light);
+    --carousel-background: var(--carousel-background-light);
+    --carousel-text: var(--carousel-text-light);
+    --indicator-color: var(--indicator-color-light);
 }
 
 body.dark-theme {
@@ -32,6 +41,9 @@ body.dark-theme {
     --body-background: var(--body-background-dark);
     --footer-background: var(--footer-background-dark);
     --footer-text: var(--footer-text-dark);
+    --carousel-background: var(--carousel-background-dark);
+    --carousel-text: var(--carousel-text-dark);
+    --indicator-color: var(--indicator-color-dark);
 }
 
 nav {
@@ -121,6 +133,7 @@ footer {
     top: 50%; /* Ustawienie na środku pionowo */
     transform: translateY(-50%); /* Przesunięcie w celu centrowania */
     max-width: 800px;
+    background: transparent;
     padding: 10px;
     border-radius: 10px;
     overflow: hidden;
@@ -146,11 +159,11 @@ footer {
 }
 
 .carousel-content {
+    background: var(--carousel-background);
     border: 1px solid #f60;
     border-radius: 10px;
     padding: 10px;
-    background: var(--carousel-background);
-    color: var(--carousel-text-color);
+    color: var(--carousel-text);
 }
 
 .carousel-controls {
@@ -171,7 +184,7 @@ footer {
 .indicator {
     width: 10px;
     height: 10px;
-    background: var(--carousel-indicator-color);
+    background: var(--indicator-color);
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -179,26 +192,6 @@ footer {
 
 .indicator.active {
     background: #f60;
-}
-
-/* Motyw jasny */
-.light-theme .carousel-content {
-    background: black;
-    color: white;
-}
-
-.light-theme .indicator {
-    background: black;
-}
-
-/* Motyw ciemny */
-.dark-theme .carousel-content {
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-}
-
-.dark-theme .indicator {
-    background: white;
 }
 
 .right-side-image {
@@ -213,7 +206,7 @@ footer {
 .social-tab {
     position: fixed;
     top: 150px;
-    right: -150px; /* Ukryj języczek początkowo */
+    right: 0;
     width: 40px;
     height: 60px;
     background-color: transparent;
@@ -229,7 +222,7 @@ footer {
 .social-icons {
     position: fixed;
     top: 150px;
-    right: -150px; /* Ukryj ikony początkowo */
+    right: -150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -242,22 +235,19 @@ footer {
     display: block;
     margin: 10px 0;
     transition: transform 0.3s ease;
-    background-color: transparent; /* Usunięcie tła */
 }
 
 .social-icons img {
     width: 40px;
     height: 40px;
-    background-color: transparent; /* Usunięcie tła */
 }
 
-.social-tab:hover,
-.social-icons:hover {
-    right: 0; /* Wysuń zarówno języczek, jak i ikony */
+.social-icons:hover,
+#social-tab:hover + .social-icons {
+    right: 0;
 }
 
 .tab-icon {
     font-size: 20px;
     transform: rotate(90deg);
-    background-color: transparent; /* Usunięcie tła */
 }
