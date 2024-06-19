@@ -15,8 +15,6 @@ body {
 
 .content {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.7); /* Półprzezroczyste tło dla zawartości, aby tekst był czytelny */
-    padding: 20px;
 }
 
 /* Styl dla nawigacji */
@@ -90,6 +88,9 @@ nav .logo img {
 .main-header {
     text-align: center;
     margin-top: 2rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla nagłówka */
+    padding: 1rem;
+    border-radius: 5px;
 }
 
 .main-header h1 {
@@ -133,9 +134,8 @@ nav .logo img {
 
 /* Styl dla sekcji ogłoszeń */
 .announcements {
-    background-color: rgba(249, 249, 249, 0.9);
+    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla sekcji ogłoszeń */
     padding: 1.5rem;
-    border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 2rem;
 }
@@ -143,7 +143,6 @@ nav .logo img {
 .announcement {
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 1rem;
 }
