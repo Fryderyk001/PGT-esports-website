@@ -206,11 +206,12 @@ footer {
 .social-container {
     position: fixed;
     top: 150px;
-    right: -150px; /* Początkowo ukryte */
+    right: -100px; /* Początkowo ukryte */
     z-index: 1000;
     transition: right 0.3s ease;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .social-tab {
@@ -227,8 +228,9 @@ footer {
 .social-icons {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     background-color: transparent;
+    margin-top: 10px; /* Dodatkowy odstęp między jezyczkiem a ikonami */
 }
 
 .social-icons a {
