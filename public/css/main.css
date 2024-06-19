@@ -213,3 +213,50 @@ footer {
     max-height: calc(100% - 50px); /* Dostosowanie do wielkości strony, uwzględniając pasek nawigacji */
     object-fit: cover;
 }
+
+
+
+.social-tab {
+    position: fixed;
+    top: 100px; /* Ustawienie pod nawigacją */
+    right: 0;
+    width: 40px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease;
+}
+
+.social-tab:hover {
+    right: 150px; /* Wysunięcie języczka przy najechaniu */
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin: 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+.tab-icon {
+    font-size: 20px;
+    transform: rotate(90deg); /* Obrót strzałki w prawo */
+}
+
