@@ -55,22 +55,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const socialTab = document.querySelector('.social-tab');
-    const socialIcons = document.querySelector('.social-icons');
+    const socialTab = document.getElementById('social-tab');
+    const socialIcons = document.getElementById('social-icons');
 
-    socialTab.addEventListener('mouseenter', () => {
+    socialTab.addEventListener('mouseover', () => {
         socialIcons.style.right = '0';
     });
 
-    socialIcons.addEventListener('mouseleave', () => {
+    socialIcons.addEventListener('mouseover', () => {
+        socialIcons.style.right = '0';
+    });
+
+    socialTab.addEventListener('mouseout', () => {
         socialIcons.style.right = '-150px';
     });
 
-    socialIcons.addEventListener('mouseenter', () => {
-        socialIcons.style.right = '0';
-    });
-
-    socialTab.addEventListener('mouseleave', () => {
+    socialIcons.addEventListener('mouseout', () => {
         socialIcons.style.right = '-150px';
     });
 });
