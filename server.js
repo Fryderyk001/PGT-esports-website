@@ -1,6 +1,7 @@
 const express = require('express');
-const fetch = require('node-fetch');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const mongoose = require('mongoose');
 const passport = require('passport');
 const DiscordStrategy = require('passport-discord').Strategy;
 const bodyParser = require('body-parser');
@@ -9,6 +10,11 @@ require('dotenv').config();
 
 const app = express();
 
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -16,7 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'your secret',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
 }));
 
 app.use(passport.initialize());
