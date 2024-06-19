@@ -236,28 +236,28 @@ footer {
     position: fixed;
     top: 150px;
     right: -150px;
-    width: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: right 0.3s ease;
+    z-index: 999;
+    background-color: transparent; /* Usunięcie tła */
 }
 
-.social-icons:hover,
-.social-tab:hover + .social-icons,
-.social-icons:hover + .social-tab {
-    right: 0;
-}
-
-.social-icon {
-    width: 30px;
-    height: 30px;
+.social-icons a {
+    display: block;
     margin: 10px 0;
     transition: transform 0.3s ease;
 }
 
-.social-icon:hover {
-    transform: scale(1.2);
+.social-icons img {
+    width: 40px;
+    height: 40px;
+}
+
+.social-icons:hover,
+#social-tab:hover + .social-icons {
+    right: 0;
 }
 
 .tab-icon {
