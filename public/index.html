@@ -58,7 +58,7 @@
             </div>
         </section>
 
-        <% if (isAdmin) { %>
+        <% if (user && user.isAdmin) { %>
         <section class="admin-section">
             <h2>Admin Section</h2>
             <form id="announcement-form">
@@ -95,8 +95,23 @@
             event.preventDefault();
             const title = document.getElementById('announcement-title').value;
             const content = document.getElementById('announcement-content').value;
-            // Call the function to add a new announcement (function should be defined in your JS file)
-            addAnnouncement(title, content);
+
+            fetch('/api/announcements', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title, content })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Announcement added successfully') {
+                    addAnnouncement(title, content);
+                } else {
+                    alert('Failed to add announcement');
+                }
+            })
+            .catch(error => console.error('Error:', error));
         });
     </script>
 </body>
