@@ -39,9 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function setTheme(theme) {
         if (theme === 'light') {
             body.classList.add('light-theme');
+            body.classList.remove('dark-theme');
             toggleLight.style.display = 'none';
             toggleDark.style.display = 'block';
         } else {
+            body.classList.add('dark-theme');
             body.classList.remove('light-theme');
             toggleDark.style.display = 'none';
             toggleLight.style.display = 'block';
@@ -49,13 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     toggleDark.addEventListener('click', () => {
-        setTheme('light');
-        localStorage.setItem('theme', 'light');
+        setTheme('dark');
+        localStorage.setItem('theme', 'dark');
     });
 
     toggleLight.addEventListener('click', () => {
-        setTheme('dark');
-        localStorage.setItem('theme', 'dark');
+        setTheme('light');
+        localStorage.setItem('theme', 'light');
     });
 
     const savedTheme = localStorage.getItem('theme') || 'dark';
