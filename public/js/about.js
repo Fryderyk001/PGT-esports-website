@@ -1,24 +1,32 @@
-// JavaScript for the about page
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleDark = document.getElementById('toggle-dark');
+    const toggleLight = document.getElementById('toggle-light');
+    const body = document.body;
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Example function to handle a button click event
-    const moreInfoButton = document.querySelector('.more-info-button');
-    if (moreInfoButton) {
-        moreInfoButton.addEventListener('click', function () {
-            alert('More information coming soon!');
-        });
+    function setTheme(theme) {
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+            body.classList.remove('dark-theme');
+            toggleLight.style.display = 'none';
+            toggleDark.style.display = 'block';
+        } else {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+            toggleDark.style.display = 'none';
+            toggleLight.style.display = 'block';
+        }
     }
 
-    // Function to handle hover effect on team member profiles
-    const teamMembers = document.querySelectorAll('.team-member');
-    teamMembers.forEach(member => {
-        member.addEventListener('mouseover', function () {
-            member.style.transform = 'scale(1.05)';
-            member.style.transition = 'transform 0.3s ease';
-        });
-        member.addEventListener('mouseout', function () {
-            member.style.transform = 'scale(1)';
-            member.style.transition = 'transform 0.3s ease';
-        });
+    toggleDark.addEventListener('click', () => {
+        setTheme('dark');
+        localStorage.setItem('theme', 'dark');
     });
+
+    toggleLight.addEventListener('click', () => {
+        setTheme('light');
+        localStorage.setItem('theme', 'light');
+    });
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
 });
