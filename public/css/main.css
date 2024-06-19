@@ -209,6 +209,8 @@ footer {
     right: -150px; /* Początkowo ukryte */
     z-index: 1000;
     transition: right 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .social-tab {
