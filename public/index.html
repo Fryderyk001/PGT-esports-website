@@ -14,13 +14,13 @@
                     <img src="images/PGT_LOGO1.png" alt="PGT Logo">
                 </div>
                 <div class="navigation-links">
-                    <a href="/">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="tournaments.html">Tournaments</a>
-                    <a href="results.html">Results</a>
-                    <a href="partners.html">Partners</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="regulations.html">Regulations</a>
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="tournaments.html" class="nav-link">Tournaments</a>
+                    <a href="results.html" class="nav-link">Results</a>
+                    <a href="partners.html" class="nav-link">Partners</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="regulations.html" class="nav-link">Regulations</a>
                 </div>
             </div>
             <div class="nav-right">
@@ -51,5 +51,16 @@
     <footer>
         <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
     </footer>
+    <script>
+        // Highlight the active link
+        const currentLocation = location.href;
+        const menuItem = document.querySelectorAll('.nav-link');
+        const menuLength = menuItem.length;
+        for (let i = 0; i < menuLength; i++) {
+            if (menuItem[i].href === currentLocation) {
+                menuItem[i].classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
