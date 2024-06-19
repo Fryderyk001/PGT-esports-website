@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/PGT_LOGO1.png" alt="PGT Logo">
+        </div>
+        <div class="navigation-links">
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="results.html">Results</a>
+            <a href="partners.html">Partners</a>
+            <a href="contact.html">Contact</a>
+            <a href="regulations.html">Regulations</a>
+            <button class="login-button" onclick="window.location.href='/logout'">
+                Logout
+            </button>
+        </div>
+    </nav>
+    
+    <header class="profile-header">
+        <h2>User Profile</h2>
+        <p>Welcome, <%= user.username %>!</p>
+        <img src="<%= user.avatarURL %>" alt="<%= user.username %>'s avatar" class="avatar">
+    </header>
+
+    <section class="profile-content">
+        <h3>Your Tournaments</h3>
+        <!-- Display user-specific tournaments here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
+    </footer>
+</body>
+</html>
