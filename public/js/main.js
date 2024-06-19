@@ -56,12 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const socialContainer = document.querySelector('.social-container');
+    const socialTab = document.querySelector('.social-tab');
+    const socialIcons = document.querySelector('.social-icons');
 
     socialContainer.addEventListener('mouseover', () => {
-        socialContainer.style.right = '0';
+        socialIcons.style.right = '0';
     });
 
     socialContainer.addEventListener('mouseout', () => {
-        socialContainer.style.right = '-100px';
+        socialIcons.style.right = '-100px';
     });
 });
