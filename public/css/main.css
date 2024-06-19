@@ -223,6 +223,7 @@ footer {
     align-items: center;
     justify-content: center;
     transition: right 0.3s ease;
+    background-color: transparent; /* Usunięcie tła */
 }
 
 .social-icons {
