@@ -96,13 +96,13 @@ nav .logo img {
 }
 
 .main-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem; /* Zmniejszony rozmiar */
+    margin-bottom: 0.5rem;
 }
 
 .main-header p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1rem; /* Zmniejszony rozmiar */
+    margin-bottom: 1rem;
 }
 
 /* Styl dla ikon społecznościowych w bocznej sekcji */
@@ -115,9 +115,9 @@ nav .logo img {
     flex-direction: column;
     align-items: center;
     padding: 0.5rem;
-    background-color: rgba(249, 249, 249, 0.9);
     border-left: 1px solid #ddd;
     border-radius: 5px 0 0 5px;
+    background-color: transparent; /* Usunięcie białego tła */
 }
 
 .social-media-sidebar a {
@@ -137,16 +137,16 @@ nav .logo img {
 /* Styl dla sekcji ogłoszeń */
 .announcements {
     background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla sekcji ogłoszeń */
-    padding: 1.5rem;
+    padding: 1rem; /* Zmniejszone wypełnienie */
     border-radius: 5px;
-    margin-top: 2rem;
+    margin-top: 1rem; /* Zmniejszony margines */
 }
 
 .announcement {
-    padding: 1rem;
+    padding: 0.5rem; /* Zmniejszone wypełnienie */
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; /* Zmniejszony margines */
 }
 
 /* Styl dla stopki */
@@ -181,11 +181,11 @@ footer {
     }
 
     .main-header h1 {
-        font-size: 2rem;
+        font-size: 1.5rem; /* Zmniejszony rozmiar */
     }
 
     .main-header p {
-        font-size: 1.2rem;
+        font-size: 0.9rem; /* Zmniejszony rozmiar */
     }
 
     .login-button {
@@ -211,11 +211,11 @@ footer {
 /* Media Queries dla tabletów */
 @media (min-width: 769px) and (max-width: 1024px) {
     .main-header h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem; /* Zmniejszony rozmiar */
     }
 
     .main-header p {
-        font-size: 1.3rem;
+        font-size: 1.1rem; /* Zmniejszony rozmiar */
     }
 
     .login-button {
