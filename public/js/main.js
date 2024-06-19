@@ -4,9 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
 
     function showItem(index) {
-        carouselItems.forEach((item, i) => {
-            item.style.transform = `translateX(${100 * (i - index)}%)`;
-        });
+        const carousel = document.querySelector('.carousel');
+        carousel.style.transform = `translateX(${-100 * index}%)`;
         indicators.forEach((indicator, i) => {
             indicator.classList.toggle('active', i === index);
         });
@@ -30,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     showItem(currentIndex);
+});
+
 
     // Theme toggle functionality
     const toggleDark = document.getElementById('toggle-dark');
