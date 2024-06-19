@@ -53,3 +53,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const socialTab = document.querySelector('.social-tab');
+    const socialIcons = document.querySelector('.social-icons');
+
+    socialTab.addEventListener('mouseenter', () => {
+        socialIcons.style.right = '0';
+    });
+
+    socialIcons.addEventListener('mouseleave', () => {
+        socialIcons.style.right = '-150px';
+    });
+
+    socialIcons.addEventListener('mouseenter', () => {
+        socialIcons.style.right = '0';
+    });
+
+    socialTab.addEventListener('mouseleave', () => {
+        socialIcons.style.right = '-150px';
+    });
+});
+
