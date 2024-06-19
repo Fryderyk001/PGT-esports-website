@@ -22,19 +22,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     updateCarousel();
-
-    // Function to add a new announcement
-    window.addAnnouncement = function(title, content) {
-        const newItem = document.createElement('div');
-        newItem.classList.add('carousel-item');
-        newItem.innerHTML = `
-            <div class="carousel-content">
-                <h3>${title}</h3>
-                <p>${content}</p>
-            </div>
-        `;
-        carousel.appendChild(newItem);
-        carouselItems.push(newItem);
-        updateCarousel();
-    };
 });
