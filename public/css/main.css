@@ -39,14 +39,13 @@ body.dark-theme .content {
 
 /* Styl dla nawigacji */
 nav {
-    background-color: #ff8c00; /* Pomarańczowy kolor nawigacji */
+    background-color: #808080; /* Szary kolor nawigacji */
     color: #fff;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem; /* Zmniejszona wielkość nawigacji */
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    border-radius: 10px; /* Zaokrąglenie nawigacji */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dodanie cienia */
 }
 
@@ -61,8 +60,8 @@ nav {
 }
 
 nav .logo-text {
-    font-size: 2rem;
-    color: #fff;
+    font-size: 1.5rem; /* Zmniejszony rozmiar tekstu logo */
+    color: #ff8c00; /* Pomarańczowy kolor tekstu logo */
     margin-right: 1rem;
 }
 
@@ -82,7 +81,7 @@ nav .logo-text {
 
 .navigation-links a:hover,
 .navigation-links a.active {
-    color: #808080; /* Szary kolor dla aktywnego linku */
+    color: #ff8c00; /* Pomarańczowy kolor dla aktywnego linku */
     transform: scale(1.1); /* Powiększenie przy najechaniu */
 }
 
