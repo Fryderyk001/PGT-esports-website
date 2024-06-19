@@ -125,7 +125,7 @@ nav .logo img {
     height: auto;
     margin: 0;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
+    background-color: transparent; /* Usunięcie białego tła */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: absolute;
@@ -171,6 +171,11 @@ nav .logo img {
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
+    visibility: hidden; /* Ukryj przyciski nawigacyjne */
+}
+
+.carousel:hover .carousel-controls {
+    visibility: visible; /* Pokaż przyciski nawigacyjne po najechaniu */
 }
 
 .carousel-prev,
@@ -187,6 +192,30 @@ nav .logo img {
 .carousel-prev:hover,
 .carousel-next:hover {
     background: rgba(0, 0, 0, 0.8);
+}
+
+/* Styl dla wskaźników karuzeli */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-indicators .indicator {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicators .indicator.active {
+    background-color: #fff;
 }
 
 /* Styl dla stopki */
