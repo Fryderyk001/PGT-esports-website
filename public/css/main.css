@@ -104,6 +104,17 @@ body.light-theme .navigation-links a.active {
     transform: scale(1.05);
 }
 
+.theme-toggle {
+    cursor: pointer;
+    height: 24px;
+    margin: 0 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.2);
+}
+
 .social-media-sidebar {
     position: fixed;
     top: 50%;
