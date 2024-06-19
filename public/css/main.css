@@ -24,11 +24,27 @@ nav {
     flex-wrap: wrap;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
 nav .logo img {
-    height: 40px;
+    height: 60px;
+    margin-right: 1rem;
 }
 
 /* Styl dla linków w nawigacji */
+.navigation-links {
+    display: flex;
+    align-items: center;
+}
+
 .navigation-links a {
     color: #fff;
     text-decoration: none;
