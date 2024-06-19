@@ -166,12 +166,12 @@ nav .logo img {
 
 .carousel-controls {
     position: absolute;
-    top: 50%;
+    bottom: 10px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    transform: translateY(-50%);
+    gap: 10px;
 }
 
 .carousel-prev,
@@ -185,14 +185,6 @@ nav .logo img {
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background 0.3s ease;
-    visibility: hidden; /* Ukryj przyciski nawigacyjne */
-}
-
-.carousel:hover .carousel-prev,
-.carousel:hover .carousel-next,
-.carousel:hover .carousel-prev-indicator,
-.carousel:hover .carousel-next-indicator {
-    visibility: visible; /* Pokaż przyciski nawigacyjne po najechaniu */
 }
 
 .carousel-prev:hover,
@@ -202,10 +194,8 @@ nav .logo img {
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Styl dla wskaźników karuzeli */
 .carousel-indicators {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 5px;
 }
