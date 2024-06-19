@@ -53,13 +53,15 @@
             </div>
             <div class="carousel-controls">
                 <button class="carousel-prev">&lt;</button>
+                <div class="carousel-indicators">
+                    <button class="carousel-prev-indicator">&lt;</button>
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <!-- Dodaj więcej wskaźników w zależności od liczby elementów karuzeli -->
+                    <button class="carousel-next-indicator">&gt;</button>
+                </div>
                 <button class="carousel-next">&gt;</button>
-            </div>
-            <div class="carousel-indicators">
-                <span class="indicator active"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-                <!-- Dodaj więcej wskaźników w zależności od liczby elementów karuzeli -->
             </div>
         </section>
     </div>
@@ -77,6 +79,17 @@
                 menuItem[i].classList.add('active');
             }
         }
+
+        // Zmiana motywu w zależności od ustawień systemowych
+        function handleThemeChange(event) {
+            const darkModeOn = event.matches;
+            document.body.classList.toggle('dark-theme', darkModeOn);
+            document.body.classList.toggle('light-theme', !darkModeOn);
+        }
+
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        handleThemeChange(darkModeMediaQuery);
+        darkModeMediaQuery.addEventListener('change', handleThemeChange);
     </script>
 </body>
 </html>
