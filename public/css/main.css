@@ -2,6 +2,7 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 body {
@@ -15,9 +16,9 @@ body {
 
 /* Styl dla nawigacji */
 nav {
-    background-color: #333; /* Szary kolor z logo */
+    background-color: #333;
     color: #fff;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,7 +36,7 @@ nav {
 }
 
 nav .logo img {
-    height: 60px;
+    height: 40px;
     margin-right: 1rem;
 }
 
@@ -50,27 +51,29 @@ nav .logo img {
     text-decoration: none;
     margin: 0 0.5rem;
     transition: color 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .navigation-links a:hover,
 .navigation-links a.active {
-    color: #FF6347; /* Pomarańczowy kolor z logo */
+    color: #FF6347;
 }
 
 /* Styl dla przycisku logowania */
 .login-button {
     background-color: #7289da;
     color: #fff;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .login-button img {
-    height: 20px;
-    margin-right: 0.5rem;
+    height: 16px;
+    margin-right: 0.3rem;
 }
 
 .login-button:hover {
@@ -85,12 +88,12 @@ nav .logo img {
 }
 
 .main-header h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .main-header p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
 }
 
@@ -103,19 +106,19 @@ nav .logo img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: #f9f9f9;
     border-left: 1px solid #ddd;
     border-radius: 5px 0 0 5px;
 }
 
 .social-media-sidebar a {
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
 }
 
 .social-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     transition: transform 0.3s ease;
 }
 
@@ -126,7 +129,7 @@ nav .logo img {
 /* Styl dla sekcji ogłoszeń */
 .announcements {
     background-color: #f9f9f9;
-    padding: 2rem;
+    padding: 1.5rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 2rem;
@@ -145,11 +148,12 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
     margin-top: auto;
     position: relative;
     bottom: 0;
     width: 100%;
+    font-size: 0.8rem;
 }
 
 /* Media Queries dla urządzeń mobilnych */
@@ -201,14 +205,14 @@ footer {
 /* Media Queries dla tabletów */
 @media (min-width: 769px) and (max-width: 1024px) {
     .main-header h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .main-header p {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .login-button {
-        padding: 0.6rem 1.2rem;
+        padding: 0.5rem 1rem;
     }
 }
