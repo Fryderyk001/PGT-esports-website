@@ -196,7 +196,7 @@ footer {
 
 .right-side-image {
     position: absolute;
-    right: 0;
+    right: 50px;
     bottom: 0;
     max-width: 50%;
     max-height: calc(100% - 50px); /* Dostosowanie do wielkości strony, uwzględniając pasek nawigacji */
@@ -206,17 +206,9 @@ footer {
 .social-container {
     position: fixed;
     top: 150px;
-    right: 0;
+    right: -150px; /* Początkowo ukryte */
     z-index: 1000;
     transition: right 0.3s ease;
-}
-
-.social-icons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent;
-    transition: margin-right 0.3s ease;
 }
 
 .social-tab {
@@ -230,6 +222,13 @@ footer {
     justify-content: center;
 }
 
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+
 .social-icons a {
     display: block;
     margin: 10px 0;
@@ -241,8 +240,8 @@ footer {
     height: 40px;
 }
 
-.social-container:hover .social-icons {
-    margin-right: 150px; /* Pokazanie ikon przy najechaniu */
+.social-container:hover {
+    right: 0; /* Wysuwa kontener przy najechaniu */
 }
 
 .tab-icon {
