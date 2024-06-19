@@ -28,6 +28,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    border-radius: 10px; /* Zaokrąglenie nawigacji */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dodanie cienia */
 }
 
 .nav-left {
@@ -41,8 +43,9 @@ nav {
 }
 
 nav .logo img {
-    height: 40px;
+    height: 50px; /* Zwiększenie rozmiaru logo */
     margin-right: 1rem;
+    border-radius: 50%; /* Zaokrąglenie logo */
 }
 
 /* Styl dla linków w nawigacji */
@@ -55,13 +58,14 @@ nav .logo img {
     color: #fff;
     text-decoration: none;
     margin: 0 0.5rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease; /* Dodanie animacji */
     font-size: 0.9rem;
 }
 
 .navigation-links a:hover,
 .navigation-links a.active {
     color: #FF6347;
+    transform: scale(1.1); /* Powiększenie przy najechaniu */
 }
 
 /* Styl dla przycisku logowania */
@@ -70,9 +74,9 @@ nav .logo img {
     color: #fff;
     padding: 0.4rem 0.8rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px; /* Zaokrąglenie przycisku */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Dodanie animacji */
     font-size: 0.9rem;
 }
 
@@ -83,26 +87,7 @@ nav .logo img {
 
 .login-button:hover {
     background-color: #5b6eae;
-    transform: scale(1.05);
-}
-
-/* Styl dla głównej zawartości */
-.main-header {
-    text-align: center;
-    margin-top: 2rem;
-    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla nagłówka */
-    padding: 1rem;
-    border-radius: 5px;
-}
-
-.main-header h1 {
-    font-size: 2rem; /* Zmniejszony rozmiar */
-    margin-bottom: 0.5rem;
-}
-
-.main-header p {
-    font-size: 1rem; /* Zmniejszony rozmiar */
-    margin-bottom: 1rem;
+    transform: scale(1.05); /* Powiększenie przy najechaniu */
 }
 
 /* Styl dla ikon społecznościowych w bocznej sekcji */
@@ -136,14 +121,19 @@ nav .logo img {
 
 /* Styl dla karuzeli ogłoszeń */
 .announcements-carousel {
-    margin-top: 1rem;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .carousel {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 300px;
+    height: 150px; /* Zmniejszenie wysokości karuzeli */
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
@@ -192,49 +182,6 @@ nav .logo img {
 .carousel-prev:hover,
 .carousel-next:hover {
     background: rgba(0, 0, 0, 0.8);
-}
-
-/* Styl dla sekcji administracyjnej */
-.admin-section {
-    background-color: rgba(255, 255, 255, 0.1); /* Półprzezroczyste tło dla sekcji administracyjnej */
-    padding: 1rem;
-    border-radius: 5px;
-    margin-top: 2rem;
-}
-
-.admin-section h2 {
-    margin-bottom: 1rem;
-}
-
-.admin-section form div {
-    margin-bottom: 1rem;
-}
-
-.admin-section label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.admin-section input[type="text"],
-.admin-section textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.admin-section button {
-    background-color: #FF6347;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.admin-section button:hover {
-    background-color: #e55337;
 }
 
 /* Styl dla stopki */
