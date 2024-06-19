@@ -1,53 +1,48 @@
-/* Globalne zmienne kolorów dla motywów */
 :root {
-    --background-light: #ffffff;
-    --text-light: #666666;
-    --background-dark: #333333;
-    --text-dark: #ffffff;
-    --nav-background: #808080;
-    --nav-text: #ffffff;
-    --nav-active: #ff8c00;
+    --nav-background-light: #ffffff;
+    --nav-background-dark: #2c2c2c;
+    --nav-text-light: #000000;
+    --nav-text-dark: #ffffff;
+    --nav-active: #ff9800;
+    --body-background-light: #ffffff;
+    --body-background-dark: #1e1e1e;
+    --footer-background-light: #ffffff;
+    --footer-background-dark: #2c2c2c;
+    --footer-text-light: #000000;
+    --footer-text-dark: #ffffff;
 }
 
-/* Styl dla całej zawartości strony */
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: var(--background-dark);
-    color: var(--text-dark);
+body {
+    background-color: var(--body-background);
+    color: var(--nav-text);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body.light-theme {
-    background-color: var(--background-light);
-    color: var(--text-light);
+    --nav-background: var(--nav-background-light);
+    --nav-text: var(--nav-text-light);
+    --body-background: var(--body-background-light);
+    --footer-background: var(--footer-background-light);
+    --footer-text: var(--footer-text-light);
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+body.dark-theme {
+    --nav-background: var(--nav-background-dark);
+    --nav-text: var(--nav-text-dark);
+    --body-background: var(--body-background-dark);
+    --footer-background: var(--footer-background-dark);
+    --footer-text: var(--footer-text-dark);
 }
 
-.content {
-    flex: 1;
-    padding: 20px;
-    background-color: transparent;
-}
-
-body.light-theme .content {
-    background-color: transparent;
-}
-
-/* Style nawigacji */
 nav {
     background-color: var(--nav-background);
     color: var(--nav-text);
-    padding: 0.3rem 1rem;
+    padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    border-bottom: 2px solid var(--nav-active); /* Pasek oddzielający */
 }
 
 nav .logo-text {
@@ -113,204 +108,13 @@ nav .logo-text {
     transform: scale(1.2);
 }
 
-
-
-.social-media-sidebar {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
-    border-left: none;
-    border-radius: 5px 0 0 5px;
-    background-color: transparent;
-}
-
-.social-media-sidebar a {
-    margin: 0.3rem 0;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s ease;
-}
-
-.social-icon:hover {
-    transform: scale(1.2);
-}
-
-.announcements-carousel {
-    width: 50%;
-    height: auto;
-    margin: 0;
-    padding: 20px;
-    background-color: transparent;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-}
-
-.carousel {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 150px;
-    display: flex;
-    align-items: center;
-}
-
-.carousel-item {
-    min-width: 100%;
-    transition: transform 0.5s ease;
-}
-
-.carousel-content {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: var(--text-dark);
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: left;
-}
-
-body.light-theme .carousel-content {
-    background-color: rgba(255, 255, 255, 0.7);
-    color: var(--text-light);
-}
-
-.carousel-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.carousel-content p {
-    font-size: 1rem;
-}
-
-.carousel-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-}
-
-.carousel-prev,
-.carousel-next {
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.carousel-indicators .indicator {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-indicators .indicator.active {
-    background-color: #fff;
-}
-
 footer {
-    background-color: rgba(51, 51, 51, 0.8);
-    color: #fff;
+    background-color: var(--footer-background);
+    color: var(--footer-text);
     text-align: center;
     padding: 0.5rem;
-    margin-top: auto;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    font-size: 0.8rem;
-}
-
-body.light-theme footer {
-    background-color: var(--background-light);
-    color: var(--text-light);
-}
-
-/* Media Queries dla urządzeń mobilnych */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navigation-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    nav a {
-        margin: 0.5rem 0;
-    }
-
-    .main-header h1 {
-        font-size: 1.5rem;
-    }
-
-    .main-header p {
-        font-size: 0.9rem;
-    }
-
-    .login-button {
-        width: 100%;
-        text-align: center;
-    }
-
-    .social-media-sidebar {
-        position: static;
-        transform: translateY(0);
-        flex-direction: row;
-        justify-content: center;
-        border: none;
-        border-radius: 0;
-        background-color: transparent;
-    }
-
-    .social-media-sidebar a {
-        margin: 0 0.5rem;
-    }
-}
-
-/* Media Queries dla tabletów */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .main-header h1 {
-        font-size: 1.8rem;
-    }
-
-    .main-header p {
-        font-size: 1.1rem;
-    }
-
-    .login-button {
-        padding: 0.5rem 1rem;
-    }
+    transition: background-color 0.3s, color 0.3s;
 }
