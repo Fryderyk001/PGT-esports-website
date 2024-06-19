@@ -13,6 +13,18 @@ nav .logo img {
     height: 40px;
 }
 
+/* Styl dla linków w nawigacji */
+.navigation-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navigation-links a:hover {
+    color: #ff6347;
+}
+
 /* Styl dla przycisku logowania */
 .login-button {
     background-color: #7289da;
@@ -21,85 +33,53 @@ nav .logo img {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-button img {
+    height: 20px;
+    margin-right: 0.5rem;
 }
 
 .login-button:hover {
     background-color: #5b6eae;
+    transform: scale(1.05);
 }
 
 /* Styl dla głównej zawartości */
-.main-content {
-    padding: 2rem;
+.main-header {
     text-align: center;
+    margin-top: 2rem;
 }
 
-.main-content h1 {
+.main-header h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.main-content p {
+.main-header p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
 }
 
-/* Styl dla stopki */
-footer {
-    background-color: #333;
-    color: #fff;
+/* Styl dla ikon społecznościowych */
+.social-media-icons {
     text-align: center;
-    padding: 1rem;
+    margin: 2rem 0;
 }
 
-/* Media Queries dla urządzeń mobilnych */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navigation-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    nav a {
-        margin: 0.5rem 0;
-    }
-
-    .main-content h1 {
-        font-size: 2rem;
-    }
-
-    .main-content p {
-        font-size: 1.2rem;
-    }
-
-    .login-button {
-        width: 100%;
-        text-align: center;
-    }
+.social-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
 }
 
-/* Media Queries dla tabletów */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .main-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .main-content p {
-        font-size: 1.4rem;
-    }
-
-    .login-button {
-        padding: 0.6rem 1.2rem;
-    }
+.social-icon:hover {
+    transform: scale(1.2);
 }
 
-/* Styl dla sekcji administratora */
+/* Styl dla sekcji admina */
 .admin-section {
     margin-top: 2rem;
     padding: 1rem;
@@ -140,62 +120,57 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* Styl dla sekcji profilu */
-.profile-header {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.profile-header .avatar {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-}
-
-.profile-content {
-    margin: 2rem;
-}
-
-/* Styl dla tabeli zarządzania turniejami */
-.manage-tournaments {
-    margin-top: 2rem;
-}
-
-.manage-tournaments table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.manage-tournaments th, .manage-tournaments td {
-    border: 1px solid #ddd;
-    padding: 0.5rem;
-    text-align: left;
-}
-
-.manage-tournaments th {
-    background-color: #f4f4f4;
-}
-
-.manage-tournaments a {
-    color: #ff6347;
-    text-decoration: none;
-    margin-right: 0.5rem;
-}
-
-.manage-tournaments a:hover {
-    text-decoration: underline;
-}
-
-.manage-tournaments form button {
-    background-color: #ff6347;
+/* Styl dla stopki */
+footer {
+    background-color: #333;
     color: #fff;
-    border: none;
-    padding: 0.3rem 0.6rem;
-    border-radius: 3px;
-    cursor: pointer;
+    text-align: center;
+    padding: 1rem;
 }
 
-.manage-tournaments form button:hover {
-    background-color: #cc4f39;
+/* Media Queries dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    .main-header h1 {
+        font-size: 2rem;
+    }
+
+    .main-header p {
+        font-size: 1.2rem;
+    }
+
+    .login-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Media Queries dla tabletów */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-header p {
+        font-size: 1.4rem;
+    }
+
+    .login-button {
+        padding: 0.6rem 1.2rem;
+    }
 }
