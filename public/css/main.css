@@ -206,7 +206,7 @@ footer {
 .social-tab {
     position: fixed;
     top: 150px;
-    right: 0;
+    right: -40px; /* Zmienione z 0 na -40px */
     width: 40px;
     height: 60px;
     background-color: transparent;
@@ -243,7 +243,9 @@ footer {
 }
 
 .social-icons:hover,
-#social-tab:hover + .social-icons {
+.social-tab:hover,
+.social-icons:hover + .social-tab,
+.social-tab:hover + .social-icons {
     right: 0;
 }
 
