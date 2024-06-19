@@ -206,3 +206,14 @@ footer {
 .dark-theme .indicator {
     background: white;
 }
+
+
+
+.right-side-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-width: 50%;
+    max-height: calc(100% - 50px); /* Dostosowanie do wielkości strony, uwzględniając pasek nawigacji */
+    object-fit: cover;
+}
