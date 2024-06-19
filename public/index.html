@@ -5,52 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PGT Esports Tournaments</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
-    <header>
+    <div class="wrapper">
         <nav>
-            <div class="logo">PGT</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="tournaments.html">Tournaments</a></li>
-                <li><a href="results.html">Results</a></li>
-                <li><a href="partners.html">Partners</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="regulations.html">Regulations</a></li>
-            </ul>
-            <div class="theme-toggle">
-                <img id="toggle-light" src="images/sun.png" alt="Light Theme" style="display:none;">
-                <img id="toggle-dark" src="images/moon.png" alt="Dark Theme">
+            <div class="logo-text">PGT</div>
+            <div class="navigation-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="tournaments.html">Tournaments</a>
+                <a href="results.html">Results</a>
+                <a href="partners.html">Partners</a>
+                <a href="contact.html">Contact</a>
+                <a href="regulations.html">Regulations</a>
             </div>
-            <a href="#" class="login-btn">Login with Discord</a>
+            <div class="login-container">
+                <img src="images/moon.png" alt="Dark Theme" id="toggle-dark" class="theme-toggle">
+                <img src="images/sun.png" alt="Light Theme" id="toggle-light" class="theme-toggle" style="display: none;">
+                <button class="login-button">
+                    <img src="images/discord-logo.png" alt="Discord Logo">
+                    Login with Discord
+                </button>
+            </div>
         </nav>
-    </header>
-    <main>
-        <section class="announcements-carousel">
-            <div class="carousel">
-                <div class="carousel-item">
-                    <div class="carousel-content">
-                        <h3>Welcome to our new members!</h3>
-                        <p>Join the upcoming tournament this weekend.</p>
+
+        <div class="content">
+            <section class="announcements-carousel">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <h3>Welcome to our new members!</h3>
+                            <p>Join the upcoming tournament this weekend.</p>
+                        </div>
                     </div>
+                    <!-- Add more carousel items here -->
                 </div>
-                <!-- Dodaj więcej elementów karuzeli tutaj -->
-            </div>
-            <div class="carousel-controls">
-                <span class="carousel-prev">&lt;</span>
-                <div class="carousel-indicators">
-                    <span class="indicator active"></span>
-                    <span class="indicator"></span>
-                    <!-- Dodaj więcej wskaźników tutaj -->
+                <div class="carousel-controls">
+                    <button class="carousel-prev">&lt;</button>
+                    <div class="carousel-indicators">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                        <span class="indicator"></span>
+                    </div>
+                    <button class="carousel-next">&gt;</button>
                 </div>
-                <span class="carousel-next">&gt;</span>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
-    </footer>
-    <script src="js/main.js"></script>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 PGT Esports Tournaments. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
