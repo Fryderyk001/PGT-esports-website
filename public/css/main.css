@@ -222,7 +222,7 @@ footer {
     right: 0;
     width: 40px;
     height: 60px; /* Dodanie wysokości dla języczka */
-    background-color: #333;
+    background-color: transparent; /* Usunięcie tła */
     color: white;
     cursor: pointer;
     z-index: 1000;
@@ -239,9 +239,7 @@ footer {
     top: 150px; /* Dostosuj w zależności od potrzeby */
     right: -150px; /* Ukryj ikony początkowo */
     width: 150px;
-    background-color: #333;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    background-color: transparent; /* Usunięcie tła */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -269,4 +267,3 @@ footer {
     font-size: 20px;
     transform: rotate(90deg); /* Obrót strzałki w prawo */
 }
-
