@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const carouselItems = document.querySelectorAll('.carousel-item');
     const prevButton = document.querySelector('.carousel-prev');
     const nextButton = document.querySelector('.carousel-next');
+    const prevIndicatorButton = document.querySelector('.carousel-prev-indicator');
+    const nextIndicatorButton = document.querySelector('.carousel-next-indicator');
     const indicators = document.querySelectorAll('.carousel-indicators .indicator');
     let currentIndex = 0;
 
@@ -21,6 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    });
+
+    prevIndicatorButton.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
+        updateCarousel();
+    });
+
+    nextIndicatorButton.addEventListener('click', () => {
         currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
         updateCarousel();
     });
