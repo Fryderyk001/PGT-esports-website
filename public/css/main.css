@@ -242,8 +242,8 @@ footer {
     height: 40px;
 }
 
-.social-icons:hover,
-.social-tab:hover + .social-icons {
+.social-tab:hover,
+.social-icons:hover {
     right: 0; /* Pokazanie ikon przy najechaniu */
 }
 
@@ -252,6 +252,11 @@ footer {
     transform: rotate(90deg);
     transition: transform 0.3s ease;
 }
+
+.social-tab:hover .tab-icon {
+    transform: rotate(90deg) translateX(-110px); /* Przesunięcie strzałki wraz z ikonami */
+}
+
 
 .social-tab:hover .tab-icon {
     transform: rotate(90deg) translateX(-110px); /* Przesunięcie strzałki wraz z ikonami */
