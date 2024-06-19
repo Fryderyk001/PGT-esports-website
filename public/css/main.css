@@ -123,16 +123,18 @@ footer {
 
 
 .announcements-carousel {
-    position: relative;
-    margin: 20px auto;
+    position: absolute; /* Ustawienie absolutne dla precyzyjnego pozycjonowania */
+    left: 20px; /* Odstęp od lewej krawędzi */
+    top: 50%; /* Ustawienie na środku pionowo */
+    transform: translateY(-50%); /* Przesunięcie w celu centrowania */
     max-width: 800px;
-    background: transparent; /* Przezroczyste tło */
+    background: transparent;
     padding: 10px;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Wypozycjonuj do lewej */
+    align-items: flex-start;
 }
 
 .carousel {
@@ -148,14 +150,15 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: left; /* Wyrównanie tekstu do lewej */
+    text-align: left;
 }
 
 .carousel-content {
-    border: 1px solid #f60; /* Pomarańczowa ramka */
+    border: 1px solid #f60;
     border-radius: 10px;
     padding: 10px;
-    color: var(--carousel-text-color); /* Kolor tekstu zależny od motywu */
+    color: var(--carousel-text-color);
+    background: rgba(0, 0, 0, 0.7); /* Ciemne tło dla lepszej widoczności */
 }
 
 .carousel-controls {
@@ -164,22 +167,6 @@ footer {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-}
-
-.carousel-prev,
-.carousel-next {
-    background: none;
-    border: none;
-    color: var(--carousel-button-color); /* Kolor przycisków zależny od motywu */
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    transition: color 0.3s ease;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    color: #f60; /* Pomarańczowy kolor po najechaniu */
 }
 
 .carousel-indicators {
@@ -192,23 +179,18 @@ footer {
 .indicator {
     width: 10px;
     height: 10px;
-    background: var(--carousel-indicator-color); /* Kolor wskaźników zależny od motywu */
+    background: var(--carousel-indicator-color);
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 .indicator.active {
-    background: #f60; /* Aktywny wskaźnik w pomarańczowym kolorze */
+    background: #f60;
 }
 
 /* Motyw jasny */
 .light-theme .carousel-content {
-    color: black;
-}
-
-.light-theme .carousel-prev,
-.light-theme .carousel-next {
     color: black;
 }
 
@@ -218,11 +200,6 @@ footer {
 
 /* Motyw ciemny */
 .dark-theme .carousel-content {
-    color: white;
-}
-
-.dark-theme .carousel-prev,
-.dark-theme .carousel-next {
     color: white;
 }
 
