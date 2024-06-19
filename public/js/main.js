@@ -58,19 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const socialTab = document.querySelector('.social-tab');
     const socialIcons = document.querySelector('.social-icons');
 
-    socialTab.addEventListener('mouseover', () => {
+    function showSocialIcons() {
+        socialTab.style.right = '0';
         socialIcons.style.right = '0';
-    });
+    }
 
-    socialIcons.addEventListener('mouseover', () => {
-        socialIcons.style.right = '0';
-    });
-
-    socialTab.addEventListener('mouseout', () => {
+    function hideSocialIcons() {
+        socialTab.style.right = '-150px';
         socialIcons.style.right = '-150px';
-    });
+    }
 
-    socialIcons.addEventListener('mouseout', () => {
-        socialIcons.style.right = '-150px';
-    });
+    socialTab.addEventListener('mouseover', showSocialIcons);
+    socialIcons.addEventListener('mouseover', showSocialIcons);
+    socialTab.addEventListener('mouseout', hideSocialIcons);
+    socialIcons.addEventListener('mouseout', hideSocialIcons);
 });
