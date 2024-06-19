@@ -58,18 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const socialTab = document.querySelector('.social-tab');
     const socialIcons = document.querySelector('.social-icons');
 
-    function showSocialIcons() {
-        socialTab.style.right = '0';
+    function showIcons() {
         socialIcons.style.right = '0';
+        socialTab.style.right = '150px';
     }
 
-    function hideSocialIcons() {
-        socialTab.style.right = '-150px';
+    function hideIcons() {
         socialIcons.style.right = '-150px';
+        socialTab.style.right = '0';
     }
 
-    socialTab.addEventListener('mouseover', showSocialIcons);
-    socialIcons.addEventListener('mouseover', showSocialIcons);
-    socialTab.addEventListener('mouseout', hideSocialIcons);
-    socialIcons.addEventListener('mouseout', hideSocialIcons);
+    socialTab.addEventListener('mouseover', showIcons);
+    socialIcons.addEventListener('mouseover', showIcons);
+
+    socialTab.addEventListener('mouseout', hideIcons);
+    socialIcons.addEventListener('mouseout', hideIcons);
 });
