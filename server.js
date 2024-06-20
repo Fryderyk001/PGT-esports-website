@@ -1,11 +1,11 @@
 const express = require('express');
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
-const mongoose = require('mongoose');
 const passport = require('passport');
 const DiscordStrategy = require('passport-discord').Strategy;
 const bodyParser = require('body-parser');
 const path = require('path');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const fetch = require('node-fetch');
 require('dotenv').config();
 
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    secret: 'your secret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
@@ -84,37 +84,15 @@ app.get('/regulations.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'regulations.html'));
 });
 
-// Endpoint do dodawania nowych ogłoszeń
+// Endpoint to add new announcements
 app.post('/api/announcements', (req, res) => {
-    if (req.isAuthenticated() && req.user.guilds.some(guild => guild.id === process.env.DISCORD_GUILD_ID && (guild.permissions & 0x8))) {
+    if (req.isAuthenticated() && req.user.guilds.some(guild => guild.id === process.env.DISCORD_ROOT_ID && (guild.permissions & 0x8))) {
         const { title, content } = req.body;
-        // Zapisz ogłoszenie do bazy danych lub pamięci (dla prostoty nie implementujemy logiki bazy danych tutaj)
+        // Save the announcement to your database or in-memory storage
+        // For simplicity, we are not implementing database logic here
         res.status(201).json({ message: 'Announcement added successfully' });
     } else {
         res.status(403).json({ message: 'Forbidden' });
-    }
-});
-
-// Endpoint do pobierania menedżerów Discorda
-const DISCORD_GUILD_ID = process.env.DISCORD_GUILD_ID;
-const DISCORD_ROOT_ID = process.env.DISCORD_ROOT_ID.split(',');
-const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
-
-app.get('/api/discord-managers', async (req, res) => {
-    try {
-        const response = await fetch(`https://discord.com/api/v8/guilds/${DISCORD_GUILD_ID}/members?limit=1000`, {
-            headers: {
-                Authorization: `Bot ${DISCORD_BOT_TOKEN}`
-            }
-        });
-        const members = await response.json();
-        const managers = members.filter(member => 
-            member.roles.some(role => DISCORD_ROOT_ID.includes(role))
-        );
-        res.json(managers);
-    } catch (error) {
-        console.error('Error fetching Discord managers:', error);
-        res.status(500).json({ error: 'Failed to fetch Discord managers' });
     }
 });
 
