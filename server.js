@@ -11,7 +11,7 @@ const yaml = require('js-yaml');
 const fetch = require('node-fetch');
 
 // Wczytywanie konfiguracji YAML
-const config = yaml.load(fs.readFileSync('./config.yaml', 'utf8'));
+const config = yaml.load(fs.readFileSync('./workflows/config.yml', 'utf8'));
 
 const app = express();
 
