@@ -109,24 +109,17 @@ nav .logo-text {
 }
 
 .container {
+    background-color: var(--nav-active);
+    color: var(--nav-text-dark);
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: var(--nav-active);
     border: 1px solid black;
-    color: white;
 }
 
-/* Flexbox layout for the content */
 .content {
     display: flex;
     justify-content: space-around;
-}
-
-.container {
-    flex: 1;
-    margin: 10px;
-    padding: 10px;
 }
 
 .manager {
