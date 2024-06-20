@@ -4,4 +4,5 @@ DISCORD_CALLBACK_URL: "your_discord_callback_url"
 DISCORD_GUILD_ID: "your_guild_id"
 DISCORD_ROOT_ID: "role_id_for_root,role_id_for_another_role"
 DISCORD_BOT_TOKEN: "your_bot_token"
-MONGO_URI: "your_mongodb_connection_string"
+MONGO_URI: "mongodb+srv://username:password@cluster0.mongodb.net/myDatabase?retryWrites=true&w=majority"
+
