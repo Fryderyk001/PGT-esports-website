@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
 });
+
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch and display Discord managers
     fetch('/api/discord-managers')
