@@ -109,17 +109,37 @@ nav .logo-text {
 }
 
 .container {
-    background-color: var(--nav-active);
-    color: var(--nav-text-dark);
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    border: 1px solid black;
+    background-color: #ff9800; /* Orange background */
+    border: 1px solid black; /* Black border */
 }
 
+.red .inner-container {
+    background-color: #ff9800;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.yellow {
+    background-color: #ff9800;
+}
+
+.green {
+    background-color: #ff9800;
+}
+
+/* Flexbox layout for the content */
 .content {
     display: flex;
     justify-content: space-around;
+}
+
+.container {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
 }
 
 .manager {
