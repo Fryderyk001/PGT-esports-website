@@ -42,7 +42,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    border-bottom: 2px solid var(--nav-active); /* Pasek oddzielający */
+    border-bottom: 2px solid var(--nav-active);
 }
 
 nav .logo-text {
@@ -112,6 +112,9 @@ nav .logo-text {
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
+    background-color: var(--nav-active);
+    border: 1px solid black;
+    color: white;
 }
 
 .red {
@@ -126,7 +129,6 @@ nav .logo-text {
     border: 2px solid green;
 }
 
-/* Flexbox layout for the content */
 .content {
     display: flex;
     justify-content: space-around;
@@ -150,4 +152,3 @@ nav .logo-text {
     border-radius: 50%;
     margin-right: 10px;
 }
-
