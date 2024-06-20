@@ -114,23 +114,15 @@ nav .logo-text {
     border-radius: 5px;
     background-color: #ff9800; /* Orange background */
     border: 1px solid black; /* Black border */
+    color: var(--nav-text-dark);
 }
 
 .red .inner-container {
-    background-color: #ff9800;
+    background-color: #ff9800; /* Orange background */
     padding: 10px;
     border-radius: 5px;
 }
 
-.yellow {
-    background-color: #ff9800;
-}
-
-.green {
-    background-color: #ff9800;
-}
-
-/* Flexbox layout for the content */
 .content {
     display: flex;
     justify-content: space-around;
