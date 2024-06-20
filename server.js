@@ -1,27 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-require('dotenv').config();
-
-// Path to the .env file
-const envPath = path.resolve(__dirname, '.env');
-
-// Function to generate a random session secret
-function generateSessionSecret() {
-    return crypto.randomBytes(64).toString('hex');
-}
-
-// Check if SESSION_SECRET is present in the environment variables
-if (!process.env.SESSION_SECRET) {
-    const sessionSecret = generateSessionSecret();
-
-    // Append SESSION_SECRET to the .env file
-    fs.appendFileSync(envPath, `\nSESSION_SECRET=${sessionSecret}`);
-
-    // Reload the environment variables
-    require('dotenv').config();
-}
-
 const express = require('express');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
@@ -29,9 +5,14 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const DiscordStrategy = require('passport-discord').Strategy;
 const bodyParser = require('body-parser');
+const path = require('path');
 const fetch = require('node-fetch');
+const crypto = require('crypto');  // Importowanie pakietu crypto
+
+require('dotenv').config();
 
 const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -41,6 +22,11 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true,
     tlsAllowInvalidCertificates: true
 });
+
+// Automatyczne generowanie `SESSION_SECRET`, jeśli nie jest ustawiony
+if (!process.env.SESSION_SECRET) {
+    process.env.SESSION_SECRET = crypto.randomBytes(64).toString('hex');  // Generowanie losowego sekretu
+}
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
