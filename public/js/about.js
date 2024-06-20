@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Fetch and display Discord managers with the role of DISCORD_ROOT_ID
+    // Fetch and display Discord managers
     fetch('/api/discord-managers')
         .then(response => response.json())
         .then(managers => {
