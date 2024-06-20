@@ -105,23 +105,6 @@ app.post('/api/announcements', (req, res) => {
     }
 });
 
-// Endpoint to fetch Discord managers
-app.get('/api/discord-managers', async (req, res) => {
-    try {
-        const response = await fetch(`https://discord.com/api/v8/guilds/${process.env.DISCORD_GUILD_ID}/members?limit=1000`, {
-            headers: {
-                Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`
-            }
-        });
-        const members = await response.json();
-        const managers = members.filter(member => member.roles.includes(process.env.DISCORD_ROOT_ID));
-        res.json(managers);
-    } catch (error) {
-        console.error('Error fetching Discord managers:', error);
-        res.status(500).json({ error: 'Failed to fetch Discord managers' });
-    }
-});
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
