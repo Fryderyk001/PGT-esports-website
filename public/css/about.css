@@ -1,148 +1,54 @@
-:root {
-    --nav-background-light: #ffffff;
-    --nav-background-dark: #2c2c2c;
-    --nav-text-light: #000000;
-    --nav-text-dark: #ffffff;
-    --nav-active: #ff9800;
-    --body-background-light: #ffffff;
-    --body-background-dark: #1e1e1e;
-    --footer-background-light: #ffffff;
-    --footer-background-dark: #2c2c2c;
-    --footer-text-light: #000000;
-    --footer-text-dark: #ffffff;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About PGT Esports Tournaments</title>
+    <link rel="stylesheet" href="css/about.css">
+    <script src="js/about.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="logo-text">PGT</div>
+            <div class="navigation-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="tournaments.html">Tournaments</a>
+                <a href="results.html">Results</a>
+                <a href="partners.html">Partners</a>
+                <a href="contact.html">Contact</a>
+                <a href="regulations.html">Regulations</a>
+            </div>
+            <div class="login-container">
+                <img src="images/sun.png" alt="Dark Theme" id="toggle-dark" class="theme-toggle">
+                <img src="images/moon.png" alt="Light Theme" id="toggle-light" class="theme-toggle" style="display: none;">
+                <button class="login-button">
+                    <img src="images/discord-logo.png" alt="Discord Logo">
+                    Login with Discord
+                </button>
+            </div>
+        </nav>
 
-body {
-    background-color: var(--body-background);
-    color: var(--nav-text);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.light-theme {
-    --nav-background: var(--nav-background-light);
-    --nav-text: var(--nav-text-light);
-    --body-background: var(--body-background-light);
-    --footer-background: var(--footer-background-light);
-    --footer-text: var(--footer-text-light);
-}
-
-body.dark-theme {
-    --nav-background: var(--nav-background-dark);
-    --nav-text: var(--nav-text-dark);
-    --body-background: var(--body-background-dark);
-    --footer-background: var(--footer-background-dark);
-    --footer-text: var(--footer-text-dark);
-}
-
-nav {
-    background-color: var(--nav-background);
-    color: var(--nav-text);
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    border-bottom: 2px solid var(--nav-active); /* Pasek oddzielający */
-}
-
-nav .logo-text {
-    font-size: 1.5rem;
-    color: var(--nav-active);
-    margin-right: 2rem;
-}
-
-.navigation-links {
-    display: flex;
-    flex-grow: 1;
-}
-
-.navigation-links a {
-    color: var(--nav-text);
-    text-decoration: none;
-    margin: 0 0.5rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.navigation-links a:hover,
-.navigation-links a.active {
-    color: var(--nav-active);
-    transform: scale(1.1);
-}
-
-.login-container {
-    display: flex;
-    align-items: center;
-}
-
-.login-button {
-    background-color: #7289da;
-    color: #fff;
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 0.9rem;
-    margin-left: 0.5rem;
-}
-
-.login-button img {
-    height: 16px;
-    margin-right: 0.3rem;
-}
-
-.login-button:hover {
-    background-color: #5b6eae;
-    transform: scale(1.05);
-}
-
-.theme-toggle {
-    cursor: pointer;
-    height: 24px;
-    margin: 0 0.5rem;
-    transition: transform 0.3s ease;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.2);
-}
-
-.container {
-    margin: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #ff9800; /* Orange background */
-    border: 1px solid black; /* Black border */
-    color: var(--nav-text-dark);
-}
-
-.red .inner-container {
-    background-color: #ff9800; /* Orange background */
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.content {
-    display: flex;
-    justify-content: space-around;
-}
-
-.container {
-    flex: 1;
-    margin: 10px;
-    padding: 10px;
-}
-
-.manager {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.manager-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
+        <div class="content">
+            <div class="container red">
+                <div class="inner-container">
+                    <h1>O Nas</h1>
+                    <p>Welcome to PGT Esports Tournaments! We are dedicated to providing exciting and competitive esports tournaments for gamers of all levels.</p>
+                    <p>Our community is built on the passion and enthusiasm of gamers from around the world. Join us and be a part of the action!</p>
+                    <p>Celem Serwera PGT jest zrzeszenie zaangażowanej społeczności, organizowanie konkursów, akcji i turniejów gamingowych, a także prowadzenie działań edukacyjnych wśród osób korzystających z tego serwera.</p>
+                </div>
+            </div>
+            <div class="container yellow">
+                <h2>Zarząd</h2>
+                <div id="discord-managers">
+                    <!-- Discord managers will be populated here -->
+                </div>
+            </div>
+            <div class="container green">
+                <!-- Future content -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
