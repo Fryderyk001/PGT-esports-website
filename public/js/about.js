@@ -38,15 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(managers => {
             const discordManagersContainer = document.getElementById('discord-managers');
             managers.forEach(manager => {
-                if (manager.roles.includes(process.env.DISCORD_ROOT_ID)) {
-                    const managerElement = document.createElement('div');
-                    managerElement.classList.add('manager');
-                    managerElement.innerHTML = `
-                        <img src="https://cdn.discordapp.com/avatars/${manager.user.id}/${manager.user.avatar}.png" alt="${manager.user.username}'s avatar" class="manager-avatar">
-                        <p>${manager.user.username}</p>
-                    `;
-                    discordManagersContainer.appendChild(managerElement);
-                }
+                const managerElement = document.createElement('div');
+                managerElement.classList.add('manager');
+                managerElement.innerHTML = `
+                    <img src="https://cdn.discordapp.com/avatars/${manager.user.id}/${manager.user.avatar}.png" alt="${manager.user.username}'s avatar" class="manager-avatar">
+                    <p>${manager.user.username}</p>
+                `;
+                discordManagersContainer.appendChild(managerElement);
             });
         })
         .catch(error => console.error('Error fetching Discord managers:', error));
