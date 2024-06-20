@@ -15,7 +15,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect('mongodb+srv://sochaplaygame:462i6spewmQiTBuW@pgt.l0jmlft.mongodb.net/?retryWrites=true&w=majority&appName=pgt', {
+const mongoURI = 'mongodb+srv://sochaplaygame:462i6spewmQiTBuW@pgt.l0jmlft.mongodb.net/?retryWrites=true&w=majority&appName=pgt';
+
+mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     tlsAllowInvalidCertificates: true
@@ -30,7 +32,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: 'mongodb+srv://sochaplaygame:462i6spewmQiTBuW@pgt.l0jmlft.mongodb.net/?retryWrites=true&w=majority&appName=pgt&ssl=true'
+        mongoUrl: mongoURI,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        tlsAllowInvalidCertificates: true
     })
 }));
 
