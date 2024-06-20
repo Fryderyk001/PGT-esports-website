@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Fetch and display Discord managers
+    // Pobierz i wyświetl zarząd Discord
     fetch('/api/discord-managers')
         .then(response => response.json())
         .then(managers => {
@@ -47,5 +47,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 discordManagersContainer.appendChild(managerElement);
             });
         })
-        .catch(error => console.error('Error fetching Discord managers:', error));
+        .catch(error => console.error('Błąd podczas pobierania zarządu Discord:', error));
 });
