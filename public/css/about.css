@@ -42,7 +42,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    border-bottom: 2px solid var(--nav-active);
+    border-bottom: 2px solid var(--nav-active); /* Pasek oddzielający */
 }
 
 nav .logo-text {
@@ -117,18 +117,7 @@ nav .logo-text {
     color: white;
 }
 
-.red {
-    border: 2px solid red;
-}
-
-.yellow {
-    border: 2px solid yellow;
-}
-
-.green {
-    border: 2px solid green;
-}
-
+/* Flexbox layout for the content */
 .content {
     display: flex;
     justify-content: space-around;
