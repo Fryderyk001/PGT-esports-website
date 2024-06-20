@@ -18,26 +18,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 const mongoURI = 'mongodb+srv://sochaplaygame:462i6spewmQiTBuW@pgt.l0jmlft.mongodb.net/?retryWrites=true&w=majority&appName=pgt';
 
 mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  tlsAllowInvalidCertificates: true
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('Error connecting to MongoDB:', err));
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: mongoURI,
     useNewUrlParser: true,
     useUnifiedTopology: true,
     tlsAllowInvalidCertificates: true
-}).then(() => {
-    console.log('Connected to MongoDB');
-}).catch(err => {
-    console.error('Error connecting to MongoDB:', err);
-});
-
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: mongoURI,
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        tlsAllowInvalidCertificates: true
-    })
+  })
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use(passport.initialize());
 app.use(passport.session());
