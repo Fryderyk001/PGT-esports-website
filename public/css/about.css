@@ -112,13 +112,13 @@ nav .logo-text {
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: #ff9800; /* Orange background */
-    border: 1px solid black; /* Black border */
+    background-color: #ff9800; /* Pomarańczowe tło */
+    border: 1px solid black; /* Czarna ramka */
     color: var(--nav-text-dark);
 }
 
 .red .inner-container {
-    background-color: #ff9800; /* Orange background */
+    background-color: #ff9800; /* Pomarańczowe tło */
     padding: 10px;
     border-radius: 5px;
 }
