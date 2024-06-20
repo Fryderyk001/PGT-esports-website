@@ -40,10 +40,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 passport.use(new DiscordStrategy({
     clientID: process.env.DISCORD_CLIENT_ID,
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
