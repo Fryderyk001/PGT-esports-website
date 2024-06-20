@@ -31,6 +31,3 @@ document.addEventListener('DOMContentLoaded', function() {
     setTheme(savedTheme);
 });
 
-
-        .catch(error => console.error('Błąd podczas pobierania zarządu Discord:', error));
-});
