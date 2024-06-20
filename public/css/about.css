@@ -42,7 +42,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    border-bottom: 2px solid var(--nav-active); /* Pasek oddzielający */
+    border-bottom: 2px solid var(--nav-active);
 }
 
 nav .logo-text {
