@@ -7,9 +7,29 @@ const DiscordStrategy = require('passport-discord').Strategy;
 const bodyParser = require('body-parser');
 const path = require('path');
 const fetch = require('node-fetch');
-const crypto = require('crypto');  // Importowanie pakietu crypto
+const fs = require('fs');
+const crypto = require('crypto');
 
 require('dotenv').config();
+
+// Funkcja do generowania losowego sekreta sesji
+function generateSessionSecret() {
+    return crypto.randomBytes(64).toString('hex');
+}
+
+// Ścieżka do pliku .env
+const envPath = path.resolve(__dirname, '.env');
+
+// Sprawdź, czy SESSION_SECRET jest ustawiony w zmiennych środowiskowych
+if (!process.env.SESSION_SECRET) {
+    const sessionSecret = generateSessionSecret();
+
+    // Dodaj SESSION_SECRET do pliku .env
+    fs.appendFileSync(envPath, `\nSESSION_SECRET=${sessionSecret}`);
+
+    // Ponownie załaduj zmienne środowiskowe
+    require('dotenv').config();
+}
 
 const app = express();
 
@@ -22,11 +42,6 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true,
     tlsAllowInvalidCertificates: true
 });
-
-// Automatyczne generowanie `SESSION_SECRET`, jeśli nie jest ustawiony
-if (!process.env.SESSION_SECRET) {
-    process.env.SESSION_SECRET = crypto.randomBytes(64).toString('hex');  // Generowanie losowego sekretu
-}
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
