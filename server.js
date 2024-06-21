@@ -65,9 +65,6 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-app.get('/about.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'about.html'));
-});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
