@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PGT Esports Tournaments</title>
-    <link rel="stylesheet" href="css/about.css">
-    <script src="js/about.js" defer></script>
+    <title>About Us</title>
+    <link rel="stylesheet" href="about.css">
 </head>
-<body>
-    <div class="wrapper">
-        <nav>
-            <div class="logo-text">PGT</div>
-            <div class="navigation-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="tournaments.html">Tournaments</a>
-                <a href="results.html">Results</a>
-                <a href="partners.html">Partners</a>
-                <a href="contact.html">Contact</a>
-                <a href="regulations.html">Regulations</a>
-            </div>
-            <div class="login-container">
-                <img src="images/moon.png" alt="Light Theme" id="toggle-light" class="theme-toggle" style="display: none;">
-                <img src="images/sun.png" alt="Dark Theme" id="toggle-dark" class="theme-toggle">
-                <button class="login-button">
-                    <img src="images/discord-logo.png" alt="Discord Logo">
-                    Login with Discord
-                </button>
-            </div>
-        </nav>
+<body class="light-theme">
+    <!-- Nawigacja skopiowana z index.html -->
+    <nav>
+        <div class="logo-text">PGT</div>
+        <div class="navigation-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="results.html">Results</a>
+            <a href="partners.html">Partners</a>
+            <a href="contact.html">Contact</a>
+            <a href="regulations.html">Regulations</a>
+        </div>
+        <div class="login-container">
+            <img src="icons/sun.svg" id="toggle-light" class="theme-toggle" alt="Light Theme">
+            <img src="icons/moon.svg" id="toggle-dark" class="theme-toggle" alt="Dark Theme">
+            <button class="login-button">Login</button>
+        </div>
+    </nav>
 
-        <footer></footer>
+    <!-- Pusty kontener dla treści -->
+    <div class="container">
+        <!-- Treść strony 'About Us' pojawi się tutaj -->
     </div>
+
+    <script src="about.js"></script>
 </body>
 </html>
