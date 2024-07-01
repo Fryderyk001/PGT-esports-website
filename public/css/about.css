@@ -126,3 +126,31 @@ footer {
     height: 0;
     overflow: hidden;
 }
+
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left-container, .middle-container, .right-container {
+    background-color: #ff9800; /* Pomarańczowy kolor */
+    color: #fff; /* Biały kolor tekstu dla lepszej czytelności */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-basis: 30%; /* Aby każdy kontener miał równy rozmiar na szerokości */
+}
+
+.left-container {
+    order: 1; /* Ustawienie kolejności wyświetlania */
+}
+
+.middle-container {
+    order: 2;
+}
+
+.right-container {
+    order: 3;
+}
+
