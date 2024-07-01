@@ -60,7 +60,7 @@ async function fetchUserData(token) {
 
 // Funkcja do aktualizacji UI z danymi użytkownika
 function updateUserInfo(username, avatarUrl) {
-    const loginButton = document.getElementById('login-button');
+    const loginButton = document.querySelector('.login-button');
     loginButton.innerHTML = `
         <img src="${avatarUrl}" alt="Avatar użytkownika" class="avatar">
         <span>${username}</span>
