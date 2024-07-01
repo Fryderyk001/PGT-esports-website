@@ -2,7 +2,7 @@ name: Fetch Discord Users
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Uruchamia co minutę
+    - cron: '*/1 * * * *'  # Runs every minute
 
 jobs:
   fetch-users:
@@ -32,4 +32,4 @@ jobs:
           git commit -m "Update Discord users data [skip ci]"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}  # Use your chosen secret name here
