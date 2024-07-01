@@ -1,54 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About PGT Esports</title>
+    <title>O PGT Esports</title>
     <link rel="stylesheet" href="css/about.css">
     <script src="js/about.js" defer></script>
+    <script>
+        // Funkcja obsługująca kliknięcie przycisku "Zaloguj się przez Discord"
+        function loginWithDiscord() {
+            window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&response_type=code&scope=identify%20email';
+        }
+    </script>
 </head>
 <body>
     <div class="wrapper">
         <nav>
             <div class="logo-text">PGT</div>
             <div class="navigation-links">
-                <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
-                <a href="tournaments.html">Tournaments</a>
-                <a href="results.html">Results</a>
-                <a href="partners.html">Partners</a>
-                <a href="contact.html">Contact</a>
-                <a href="regulations.html">Regulations</a>
+                <a href="index.html">Strona główna</a>
+                <a href="about.html" class="active">O nas</a>
+                <a href="tournaments.html">Turnieje</a>
+                <a href="results.html">Wyniki</a>
+                <a href="partners.html">Partnerzy</a>
+                <a href="contact.html">Kontakt</a>
+                <a href="regulations.html">Regulaminy</a>
             </div>
             <div class="login-container">
-                <img src="images/moon.png" alt="Light Theme" id="toggle-light" class="theme-toggle" style="display: none;">
-                <img src="images/sun.png" alt="Dark Theme" id="toggle-dark" class="theme-toggle">
-                <button class="login-button">
-                    <img src="images/discord-logo.png" alt="Discord Logo">
-                    Login with Discord
+                <!-- Zamień obsługę zdarzenia onclick na wywołanie funkcji -->
+                <button class="login-button" onclick="loginWithDiscord()">
+                    <img src="images/discord-logo.png" alt="Logo Discorda">
+                    Zaloguj się przez Discord
                 </button>
             </div>
         </nav>
 
         <div class="content-section">
             <div class="left-container">
-    <h2>Celem Serwera PGT jest zrzeszenie zaangażowanej społeczności, organizowanie konkursów, akcji i turniejów gamingowych, a także prowadzenie działań edukacyjnych wśród osób korzystających z tego serwera.</h2>
-    <p>Serwer PGT Esports to nie tylko miejsce rywalizacji, ale także wspólnoty i nauki. Naszym celem jest promowanie fair play, wspieranie talentów oraz budowanie pozytywnej atmosfery dla wszystkich uczestników. Dołącz do naszej społeczności i podziel się pasją do gier!</p>
-</div>
+                <h2>Celem Serwera PGT jest zrzeszenie zaangażowanej społeczności, organizowanie konkursów, akcji i turniejów gamingowych, a także prowadzenie działań edukacyjnych wśród osób korzystających z tego serwera.</h2>
+                <p>Serwer PGT Esports to nie tylko miejsce rywalizacji, ale także wspólnoty i nauki. Naszym celem jest promowanie fair play, wspieranie talentów oraz budowanie pozytywnej atmosfery dla wszystkich uczestników. Dołącz do naszej społeczności i podziel się pasją do gier!</p>
+            </div>
 
-          <div class="middle-container">
-                <h2>Zarząd</h2>
+            <div class="middle-container">
+                <h2>Zarząd:</h2>
                 <div class="discord-users" id="discord-users"></div>
             </div>
 
             <div class="right-container">
-                <h2>Right Container</h2>
-                <p>This container is positioned on the right side.</p>
+                <h2>Prawy Kontener</h2>
+                <p>Ten kontener jest umieszczony po prawej stronie.</p>
             </div>
         </div>
 
         <footer>
-            <p>&copy; 2024 PGT Esports. All rights reserved.</p>
+           
         </footer>
     </div>
 </body>
