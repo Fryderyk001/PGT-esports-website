@@ -1,10 +1,16 @@
-// discord-login.js
-
-// Funkcja obsługująca kliknięcie przycisku "Zaloguj się przez Discord"
-function loginWithDiscord() {
-    // Zaktualizuj client_id na rzeczywisty identyfikator aplikacji Discord
-    // Zaktualizuj redirect_uri na prawidłowy adres URL przekierowania
-    window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1252915029703917598&redirect_uri=https://pgt-esports-website-2fmb.vercel.app/about.html&response_type=code&scope=identify%20email';
+// Funkcja do ustawiania ciasteczek zabezpieczonych
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    var cookieOptions = expires + "; path=/; SameSite=Strict";
+    if (window.location.protocol === 'https:') {
+        cookieOptions += "; Secure; HttpOnly";
+    }
+    document.cookie = name + "=" + (value || "") + cookieOptions;
 }
 
 // Funkcja do wymiany code na access_token
@@ -24,7 +30,7 @@ async function exchangeCodeForToken(code) {
         });
 
         if (!response.ok) {
-            throw new Error('Nie udało się wymienić code na token');
+            throw new Error(`HTTP error! Status: ${response.status}, Text: ${response.statusText}`);
         }
 
         const data = await response.json();
@@ -47,7 +53,7 @@ async function fetchUserData(token) {
         });
 
         if (!response.ok) {
-            throw new Error('Nie udało się pobrać danych użytkownika');
+            throw new Error(`HTTP error! Status: ${response.status}, Text: ${response.statusText}`);
         }
 
         const userData = await response.json();
@@ -83,6 +89,8 @@ window.onload = function() {
                                 const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.id}/${avatar}.png`;
 
                                 updateUserInfo(username, avatarUrl);
+                                // Ustawienie ciasteczka po pomyślnej autoryzacji
+                                setCookie('discord_access_token', token, 1); // Ustawia ciasteczko na 1 dzień (możesz dostosować czas trwania)
                             }
                         })
                         .catch(error => console.error('Błąd podczas pobierania danych użytkownika:', error));
