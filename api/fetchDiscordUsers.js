@@ -18,25 +18,32 @@ client.on('ready', async () => {
   const ceoRole = '1255980299121066005';
   const queryRole = '1255982048838029362';
 
-  const ceoMembers = await guild.roles.cache.get(ceoRole).members.fetch();
-  const queryMembers = await guild.roles.cache.get(queryRole).members.fetch();
+  try {
+    // Pobierz członków danej roli
+    const ceoMembers = await guild.roles.cache.get(ceoRole).members.fetch().then(members => members.array());
+    const queryMembers = await guild.roles.cache.get(queryRole).members.fetch().then(members => members.array());
 
-  const ceoUsers = ceoMembers.map(member => ({
-    name: member.user.username,
-    avatarUrl: member.user.displayAvatarURL({ format: 'png' }),
-  }));
+    // Przygotuj listy użytkowników
+    const ceoUsers = ceoMembers.map(member => ({
+      name: member.user.username,
+      avatarUrl: member.user.displayAvatarURL({ format: 'png' }),
+    }));
 
-  const queryUsers = queryMembers.map(member => ({
-    name: member.user.username,
-    avatarUrl: member.user.displayAvatarURL({ format: 'png' }),
-  }));
+    const queryUsers = queryMembers.map(member => ({
+      name: member.user.username,
+      avatarUrl: member.user.displayAvatarURL({ format: 'png' }),
+    }));
 
-  // Zapisz dane do plików JSON
-  fs.writeFileSync('ceo_users.json', JSON.stringify(ceoUsers, null, 2));
-  fs.writeFileSync('query_users.json', JSON.stringify(queryUsers, null, 2));
+    // Zapisz dane do plików JSON
+    fs.writeFileSync('ceo_users.json', JSON.stringify(ceoUsers, null, 2));
+    fs.writeFileSync('query_users.json', JSON.stringify(queryUsers, null, 2));
 
-  console.log('Ceo:', ceoUsers);
-  console.log('Query:', queryUsers);
+    console.log('Ceo:', ceoUsers);
+    console.log('Query:', queryUsers);
 
-  client.destroy();
+    client.destroy();
+  } catch (error) {
+    console.error('Wystąpił błąd podczas przetwarzania członków roli:', error);
+    client.destroy();
+  }
 });
