@@ -1,36 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="light-theme">
-    <!-- Nawigacja skopiowana z index.html -->
-    <nav>
-        <div class="logo-text">PGT</div>
-        <div class="navigation-links">
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="tournaments.html">Tournaments</a>
-            <a href="results.html">Results</a>
-            <a href="partners.html">Partners</a>
-            <a href="contact.html">Contact</a>
-            <a href="regulations.html">Regulations</a>
-        </div>
-        <div class="login-container">
-            <img src="icons/sun.svg" id="toggle-light" class="theme-toggle" alt="Light Theme">
-            <img src="icons/moon.svg" id="toggle-dark" class="theme-toggle" alt="Dark Theme">
-            <button class="login-button">Login</button>
-        </div>
-    </nav>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleDark = document.getElementById('toggle-dark');
+    const toggleLight = document.getElementById('toggle-light');
+    const body = document.body;
 
-    <!-- Pusty kontener dla treści -->
-    <div class="container">
-        <!-- Treść strony 'About Us' pojawi się tutaj -->
-    </div>
+    function setTheme(theme) {
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+            body.classList.remove('dark-theme');
+            toggleLight.style.display = 'none';
+            toggleDark.style.display = 'block';
+        } else {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+            toggleDark.style.display = 'none';
+            toggleLight.style.display = 'block';
+        }
+    }
 
-    <script src="about.js"></script>
-</body>
-</html>
+    toggleDark.addEventListener('click', () => {
+        setTheme('dark');
+        localStorage.setItem('theme', 'dark');
+    });
+
+    toggleLight.addEventListener('click', () => {
+        setTheme('light');
+        localStorage.setItem('theme', 'light');
+    });
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+
+    // Automatyczne ustawianie aktywnej klasy nawigacji
+    const currentPath = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.navigation-links a');
+
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        }
+    });
+});
