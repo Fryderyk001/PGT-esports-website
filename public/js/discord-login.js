@@ -1,20 +1,5 @@
-// Funkcja do ustawiania ciasteczek zabezpieczonych
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    var cookieOptions = expires + "; path=/; SameSite=Strict";
-    if (window.location.protocol === 'https:') {
-        cookieOptions += "; Secure; HttpOnly";
-    }
-    document.cookie = name + "=" + (value || "") + cookieOptions;
-}
-
-// Funkcja do wymiany code na access_token
-async function exchangeCodeForToken(code) {
+// Funkcja do wymiany code na access_token i zapis do ciasteczka
+async function exchangeCodeForTokenAndSetCookie(code) {
     const clientId = '1252915029703917598'; // Twój client_id
     const clientSecret = 'rIRfxPirDG_UAw9Sy7VOGbNEnev9iXQv'; // Twój client_secret
     const redirectUri = 'https://pgt-esports-website-2fmb.vercel.app/about.html'; // Twój redirect_uri
@@ -30,30 +15,42 @@ async function exchangeCodeForToken(code) {
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}, Text: ${response.statusText}`);
+            throw new Error('Nie udało się wymienić code na token');
         }
 
         const data = await response.json();
-        return data.access_token;
+        const accessToken = data.access_token;
+
+        // Ustawienie ciasteczka z tokenem dostępu
+        document.cookie = `discordAccessToken=${accessToken}; Secure; HttpOnly`;
+        
+        return accessToken;
     } catch (error) {
         console.error('Błąd podczas wymiany code na token:', error.message);
         return null;
     }
 }
 
-// Funkcja do pobrania danych użytkownika po zalogowaniu
-async function fetchUserData(token) {
+// Funkcja do pobrania danych użytkownika po zalogowaniu z ciasteczka
+async function fetchUserDataFromCookie() {
+    const cookie = document.cookie;
+    const accessToken = cookie.split('; ').find(row => row.startsWith('discordAccessToken=')).split('=')[1];
+
+    if (!accessToken) {
+        return null;
+    }
+
     const userEndpoint = 'https://discord.com/api/users/@me';
 
     try {
         const response = await fetch(userEndpoint, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${accessToken}`
             }
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}, Text: ${response.statusText}`);
+            throw new Error('Nie udało się pobrać danych użytkownika');
         }
 
         const userData = await response.json();
@@ -79,18 +76,16 @@ window.onload = function() {
     const code = urlParams.get('code');
 
     if (code) {
-        exchangeCodeForToken(code)
+        exchangeCodeForTokenAndSetCookie(code)
             .then(token => {
                 if (token) {
-                    fetchUserData(token)
+                    fetchUserDataFromCookie()
                         .then(userData => {
                             if (userData) {
                                 const { username, avatar } = userData;
                                 const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.id}/${avatar}.png`;
 
                                 updateUserInfo(username, avatarUrl);
-                                // Ustawienie ciasteczka po pomyślnej autoryzacji
-                                setCookie('discord_access_token', token, 1); // Ustawia ciasteczko na 1 dzień (możesz dostosować czas trwania)
                             }
                         })
                         .catch(error => console.error('Błąd podczas pobierania danych użytkownika:', error));
