@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="css/about.css">
     <script src="js/about.js" defer></script>
     <script>
-        // Function to handle clicking on "Login with Discord" button
+        // Funkcja obsługująca kliknięcie przycisku "Zaloguj się przez Discord"
         function loginWithDiscord() {
-            window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1252915029703917598&redirect_uri=REDIRECT_URI&response_type=code&scope=identify%20email';    </script>
+            // Zaktualizuj client_id na rzeczywisty identyfikator aplikacji Discord
+            // Zaktualizuj redirect_uri na prawidłowy adres URL przekierowania
+            window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1252915029703917598&redirect_uri=REDIRECT_URI&response_type=code&scope=identify%20email';
+        }
+    </script> 
 </head>
 <body>
     <div class="wrapper">
