@@ -15,17 +15,33 @@ client.on('ready', async () => {
     return;
   }
 
-  const ceoRole = '1255980299121066005';
-  const queryRole = '1255982048838029362';
+  const ceoRoleId = '1255980299121066005';
+  const queryRoleId = '1255982048838029362';
 
   try {
-    // Pobierz członków danej roli i przetwórz na listę użytkowników
-    const ceoUsers = guild.roles.cache.get(ceoRole).members.filter(member => !member.user.bot).map(member => ({
+    // Pobierz role z gildii
+    const ceoRole = guild.roles.cache.get(ceoRoleId);
+    const queryRole = guild.roles.cache.get(queryRoleId);
+
+    if (!ceoRole || !queryRole) {
+      console.error('Nie można znaleźć roli.');
+      return;
+    }
+
+    // Pobierz członków danej roli
+    const ceoMembers = await ceoRole.members.fetch().then(members => members.array());
+    const queryMembers = await queryRole.members.fetch().then(members => members.array());
+
+    console.log('Ceo Members:', ceoMembers);
+    console.log('Query Members:', queryMembers);
+
+    // Przygotuj listy użytkowników
+    const ceoUsers = ceoMembers.map(member => ({
       name: member.user.username,
       avatarUrl: member.user.displayAvatarURL({ format: 'png' }),
     }));
 
-    const queryUsers = guild.roles.cache.get(queryRole).members.filter(member => !member.user.bot).map(member => ({
+    const queryUsers = queryMembers.map(member => ({
       name: member.user.username,
       avatarUrl: member.user.displayAvatarURL({ format: 'png' }),
     }));
