@@ -59,7 +59,7 @@ async function fetchUserData(token) {
 }
 
 // Funkcja do aktualizacji UI z danymi użytkownika
-function updateUserInfo(username, avatarUrl, userId) {
+function updateUserInfo(username, avatarUrl) {
     const loginButton = document.getElementById('login-button');
     loginButton.innerHTML = `
         <img src="${avatarUrl}" alt="Avatar użytkownika" class="avatar">
@@ -79,10 +79,10 @@ window.onload = function() {
                     fetchUserData(token)
                         .then(userData => {
                             if (userData) {
-                                const { username, avatar, id } = userData;
-                                const avatarUrl = `https://cdn.discordapp.com/avatars/${id}/${avatar}.png`;
+                                const { username, avatar } = userData;
+                                const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.id}/${avatar}.png`;
 
-                                updateUserInfo(username, avatarUrl, id);
+                                updateUserInfo(username, avatarUrl);
                             }
                         })
                         .catch(error => console.error('Błąd podczas pobierania danych użytkownika:', error));
