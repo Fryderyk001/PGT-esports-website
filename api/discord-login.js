@@ -10,7 +10,7 @@ function loginWithDiscord() {
 // Funkcja do wymiany code na access_token
 async function exchangeCodeForToken(code) {
     const clientId = '1252915029703917598'; // Twój client_id
-    const clientSecret = 'twój_client_secret'; // Twój client_secret
+    const clientSecret = 'rIRfxPirDG_UAw9Sy7VOGbNEnev9iXQv'; // Twój client_secret
     const redirectUri = 'https://pgt-esports-website-2fmb.vercel.app/about.html'; // Twój redirect_uri
     const tokenEndpoint = 'https://discord.com/api/oauth2/token';
 
