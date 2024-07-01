@@ -19,17 +19,13 @@ client.on('ready', async () => {
   const queryRole = '1255982048838029362';
 
   try {
-    // Pobierz członków danej roli
-    const ceoMembers = await guild.roles.cache.get(ceoRole).members.fetch().then(members => members.array());
-    const queryMembers = await guild.roles.cache.get(queryRole).members.fetch().then(members => members.array());
-
-    // Przygotuj listy użytkowników
-    const ceoUsers = ceoMembers.map(member => ({
+    // Pobierz członków danej roli i przetwórz na listę użytkowników
+    const ceoUsers = guild.roles.cache.get(ceoRole).members.filter(member => !member.user.bot).map(member => ({
       name: member.user.username,
       avatarUrl: member.user.displayAvatarURL({ format: 'png' }),
     }));
 
-    const queryUsers = queryMembers.map(member => ({
+    const queryUsers = guild.roles.cache.get(queryRole).members.filter(member => !member.user.bot).map(member => ({
       name: member.user.username,
       avatarUrl: member.user.displayAvatarURL({ format: 'png' }),
     }));
