@@ -7,7 +7,7 @@ client.login(process.env.DISCORD_TOKEN);
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}`);
 
-  const guildId = 'ID Twojego serwera';
+  const guildId = '1107729151953211422';
   const guild = client.guilds.cache.get(guildId);
 
   if (!guild) {
