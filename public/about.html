@@ -6,14 +6,9 @@
     <title>About PGT Esports</title>
     <link rel="stylesheet" href="css/about.css">
     <script src="js/about.js" defer></script>
-   <script>
-        // Funkcja obsługująca kliknięcie przycisku "Zaloguj się przez Discord"
-        function loginWithDiscord() {
-            // Zaktualizuj client_id na rzeczywisty identyfikator aplikacji Discord
-            // Zaktualizuj redirect_uri na prawidłowy adres URL przekierowania
-            window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=1252915029703917598&redirect_uri=https://pgt-esports-website-2fmb.vercel.app/about.html&response_type=code&scope=identify%20email';
-        }
-    </script>
+    <script src="api/discord-login.js" defer></script>
+
+  
 </head>
 <body>
     <div class="wrapper">
